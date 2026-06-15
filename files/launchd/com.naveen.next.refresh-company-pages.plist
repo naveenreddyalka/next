@@ -7,9 +7,8 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/nalka/next/files/scripts/refresh_company_pages.sh</string>
+    <string>/Users/nalka/Home/next/files/scripts/refresh_company_pages.sh</string>
   </array>
-  <!-- Every Sunday at 9:00 AM -->
   <key>StartCalendarInterval</key>
   <dict>
     <key>Weekday</key>
@@ -19,12 +18,11 @@
     <key>Minute</key>
     <integer>0</integer>
   </dict>
-  <!-- Also run once when the agent is first loaded -->
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/Users/nalka/next/.refresh_company_pages.log</string>
+  <string>/Users/nalka/Home/next/.refresh_company_pages.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/nalka/next/.refresh_company_pages.log</string>
+  <string>/Users/nalka/Home/next/.refresh_company_pages.log</string>
 </dict>
 </plist>
