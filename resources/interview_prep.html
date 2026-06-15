@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interview Prep — Naveen Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem}.topbar a{color:#aaa;font-size:.85rem;text-decoration:none}
+  .hero{background:#4A1528;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500}.hero p{opacity:.8;font-size:.9rem;margin-top:.25rem}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.05rem;font-weight:500;margin:1.5rem 0 .5rem;border-bottom:1px solid #e5e4e0;padding-bottom:.4rem}
+  .prep-item{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1rem 1.25rem;margin-bottom:10px;font-size:.88rem}
+  .prep-item strong{display:block;margin-bottom:4px}
+  .prep-item code{background:#f0efe9;padding:2px 6px;border-radius:4px;font-size:.82rem;font-family:monospace}
+  .week{background:#4A1528;color:#fff;font-size:.75rem;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:.5rem}
+  .story{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1rem;margin-bottom:10px}
+  .story .q{font-weight:500;font-size:.88rem;color:#4A1528;margin-bottom:.3rem}
+  .story .hint{font-size:.82rem;color:#666}
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a></nav>
+<div class="topbar"><a href="../index.html">← Home</a></div>
+<div class="hero">
+  <h1>Interview Prep Plan</h1>
+  <p>6-week prep timeline · System design topics · Behavioral stories · Algo focus areas</p>
+</div>
+<main>
+
+  <h2>6-week prep timeline</h2>
+  <div class="prep-item"><span class="week">Week 1–2</span><strong>LeetCode foundation: Arrays, strings, hashmaps, two pointers</strong>Complete NeetCode.io Blind 75 list. Target: 2 Medium per day. Use Java or Scala (both are fine). Focus on pattern recognition, not memorization.</div>
+  <div class="prep-item"><span class="week">Week 3</span><strong>LeetCode advanced: Trees, graphs, BFS/DFS, dynamic programming</strong>These are the most commonly asked at Anthropic and Google. Pay special attention to graph problems — service topology questions appear in system design rounds too.</div>
+  <div class="prep-item"><span class="week">Week 4</span><strong>System design: Distributed systems fundamentals</strong>Master: (1) Design a distributed rate limiter, (2) Design a service registry with health checks, (3) Design a pub/sub system (you know Kafka — explain the internals), (4) Design an auth system with RBAC. Use Excalidraw to practice drawing architectures.</div>
+  <div class="prep-item"><span class="week">Week 5</span><strong>System design: AI/platform-specific</strong>For Anthropic: Design a deployment pipeline for ML models. For ServiceNow: Design a multi-tenant SaaS platform. For NVIDIA: Design a multi-datacenter GPU job scheduler. For Databricks: Design a distributed data processing pipeline.</div>
+  <div class="prep-item"><span class="week">Week 6</span><strong>Mock interviews + behavioral prep</strong>Do 3–5 mock interviews on Pramp.com or with a friend. Polish your STAR stories (see below). Research each company's engineering blog.</div>
+
+  <h2>System design: must-know topics for your targets</h2>
+  <div class="prep-item"><strong>All companies: Consistent hashing + distributed caching</strong>Know how Cassandra, Redis, and consistent hashing work. You've used both in production — be ready to explain implementation tradeoffs, not just usage.</div>
+  <div class="prep-item"><strong>Anthropic/ServiceNow: Service mesh + observability</strong>Know: distributed tracing (Jaeger/Zipkin), metrics collection (Prometheus/Grafana), log aggregation (ELK stack). Be able to design a full observability system from scratch.</div>
+  <div class="prep-item"><strong>Stripe: Payments reliability patterns</strong>Know: idempotency keys, exactly-once delivery, saga pattern for distributed transactions, database sharding for payments. You have production experience — frame it architecturally.</div>
+  <div class="prep-item"><strong>Databricks/Confluent: Stream processing</strong>Know: Kafka consumer groups, partition rebalancing, exactly-once semantics, Flink vs Spark Streaming tradeoffs. You've used Kafka at 5 companies — be the expert in the room.</div>
+
+  <h2>Behavioral stories — prepare these (STAR format)</h2>
+  <div class="story"><div class="q">Q: "Tell me about a time you improved system performance significantly."</div><div class="hint">Use: MakeMyTrip — redesigned payment system, cut response times 50%, reduced maintenance cost 60%, improved success rates increasing revenue by millions. Be quantitative.</div></div>
+  <div class="story"><div class="q">Q: "Tell me about owning a complex platform used by many teams."</div><div class="hint">Use: CreditKarma — own Finagle-based web framework used by ALL product development teams. Balancing framework stability vs team feature requests. Managing EOL technology.</div></div>
+  <div class="story"><div class="q">Q: "Tell me about a system you designed from scratch."</div><div class="hint">Use: MakeMyTrip — total revamp of payment system, multi-datacenter, event-driven retry logic, Spring Boot + JPA + CouchBase + RabbitMQ. Explain architecture decisions.</div></div>
+  <div class="story"><div class="q">Q: "Tell me about handling scale."</div><div class="hint">Use: Myntra/Flipkart — 500 million carts, hundreds of thousands of payments per day, 100% uptime requirement, in-house distributed database sharding over MySQL + Cassandra.</div></div>
+  <div class="story"><div class="q">Q: "Tell me about working with legacy systems."</div><div class="hint">Use: CreditKarma — Finagle framework (Twitter, EOL), maintaining it for all product teams while contributing to open-source alternatives. Shows pragmatism + technical depth.</div></div>
+
+</main>
+</body>
+</html>

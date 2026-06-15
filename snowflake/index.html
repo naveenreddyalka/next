@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Reddy Alka - Snowflake</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; }
+  .topnav { background: #1a3a5c; padding: 10px 24px; font-size: 13px; }
+  .topnav a { color: #aac4e0; text-decoration: none; margin-right: 16px; }
+  .topnav a:hover { color: white; }
+  header { background: #29b5e8; color: white; padding: 32px 40px; }
+  header h1 { font-size: 28px; font-weight: 700; }
+  header p { margin-top: 6px; opacity: 0.85; font-size: 14px; }
+  .tabs { display: flex; gap: 0; background: white; border-bottom: 2px solid #e8eaf0; padding: 0 24px; max-width: 900px; margin: 0 auto; }
+  .tab-btn { background: none; border: none; padding: 14px 20px; font-size: 13px; font-weight: 600; color: #666; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+  .tab-btn:hover { color: #29b5e8; }
+  .tab-btn.active { color: #29b5e8; border-bottom-color: #29b5e8; }
+  .container { max-width: 900px; margin: 32px auto 48px; padding: 0 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+  .card h2 { font-size: 16px; font-weight: 700; color: #29b5e8; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 2px solid #29b5e8; padding-bottom: 8px; }
+  .job-row { border: 1px solid #e8eaf0; border-radius: 8px; padding: 18px; margin-bottom: 14px; }
+  .job-title { font-size: 15px; font-weight: 600; }
+  .job-id { font-size: 12px; color: #888; margin-top: 3px; }
+  .job-fit { font-size: 13px; color: #444; margin-top: 10px; line-height: 1.6; }
+  .apply-btn { display: inline-block; margin-top: 12px; padding: 8px 18px; background: #29b5e8; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .research-btn { display: inline-block; margin-top: 12px; padding: 10px 20px; background: #1a3a5c; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .resume-link { display: inline-block; margin: 4px 8px 4px 0; padding: 8px 18px; background: #1a3a5c; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .pitch { font-size: 14px; line-height: 1.7; color: #333; }
+  .tag { display: inline-block; padding: 3px 10px; background: #f0f2f7; border-radius: 20px; font-size: 12px; color: #555; margin: 3px 3px 3px 0; }
+  .research-card p { font-size: 13px; color: #555; line-height: 1.6; }
+  .app-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .app-table th { text-align: left; padding: 10px 12px; background: #f8f9fc; border-bottom: 2px solid #e8eaf0; font-size: 11px; text-transform: uppercase; color: #666; }
+  .app-table td { padding: 10px 12px; border-bottom: 1px solid #f0f2f7; vertical-align: top; }
+  .table-wrap { overflow-x: auto; }
+  .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .status-submitted { background: #eaf3de; color: #27500a; }
+  .status-progress { background: #fff3cd; color: #856404; }
+  .status-pending { background: #e8eaf0; color: #555; }
+  .status-none { background: #f0f2f7; color: #888; }
+  .apps-summary { font-size: 13px; color: #666; margin-bottom: 12px; }
+  .muted { font-size: 13px; color: #888; }
+  .link-sm { font-size: 12px; color: #29b5e8; text-decoration: none; font-weight: 600; }
+  .link-sm:hover { text-decoration: underline; }
+  .detail-list { padding-left: 18px; margin: 10px 0 16px; }
+  .detail-list li { font-size: 13px; line-height: 1.65; color: #444; margin-bottom: 6px; }
+  .growth-note { font-size: 13px; color: #633806; background: #fff8ed; padding: 10px 14px; border-radius: 6px; margin: 8px 0 14px; line-height: 1.55; }
+  .prep-label { font-size: 13px; color: #333; margin: 14px 0 6px; }
+  .card h3 { font-size: 13px; font-weight: 700; color: #29b5e8; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: .04em; }
+  .q-item { border: 1px solid #e8eaf0; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .q-type { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .type-coding { background: #e8f0fe; color: #1a56ce; }
+  .type-design { background: #fce8e8; color: #7a0009; }
+  .type-behavioral { background: #eaf3de; color: #27500a; }
+  .type-other { background: #f0f2f7; color: #555; }
+  .q-meta { font-size: 11px; color: #888; }
+  .q-text { font-size: 13px; line-height: 1.6; color: #333; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="../index.html">&larr; Home</a>
+  <a href="company_info.html">Company Research</a>
+</nav>
+<header>
+  <h1>Naveen Reddy Alka &rarr; Snowflake</h1>
+  <p>naveenreddy.alka@gmail.com &nbsp;&middot;&nbsp; 314-498-5314 &nbsp;&middot;&nbsp; linkedin.com/in/naveenreddyalka &nbsp;&middot;&nbsp; San Francisco Bay Area</p>
+</header>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('apply', this)">Apply</button>
+  <button class="tab-btn" onclick="showTab('applications', this)">My Applications</button>
+  <button class="tab-btn" onclick="showTab('questions', this)">Latest Questions</button>
+</div>
+<div class="container">
+  <div id="tab-apply" class="tab-panel active">
+    
+    <div class="card research-card">
+      <h2>Company Research</h2>
+      <p>Compensation, interview process, pros/cons, benefits, and open roles are on the dedicated research page.</p>
+      <a class="research-btn" href="company_info.html">Open Snowflake Research Page</a>
+    </div>
+    <div class="card"><h2>Target Roles at Snowflake</h2><div class="job-row"><div class="job-title">Senior Software Engineer - Cloud Services</div><div class="job-id">Job ID: SNCOUS683A</div><div class="job-fit">Cloud services, Cassandra, Kubernetes, Java/Scala.</div><a class="apply-btn" href="https://careers.snowflake.com/us/en" target="_blank">Apply Now</a></div></div>
+    <div class="card"><h2>Why Snowflake</h2>
+      <p class="pitch">Senior Software Engineer with 17+ years in cloud services and distributed data infrastructure. MS CS, ASU 2021.</p>
+      
+    <h3>Company snapshot</h3>
+    <ul class="detail-list">
+      <li><strong>Company type:</strong> Public (NYSE: SNOW). Data cloud leader. RSUs liquid; stock has been volatile.</li>
+      <li><strong>Salary range (Bay Area):</strong> MTS2 Senior Bay Area: $420K-$640K TC; Senior Staff $640K+ (Levels.fyi 2026).</li>
+    </ul>
+    <p class="growth-note">Public company with enterprise moat. RSU refresh supports comp growth.</p>
+    <h3>Benefits and perks</h3>
+    <ul class="detail-list"><li>RSU equity + refresh</li><li>401(k) match</li><li>Free snacks/drinks (San Mateo HQ)</li><li>Medical/dental/vision</li><li>Parental leave</li><li>Hybrid San Mateo office (~30 min from San Ramon)</li><li>Employee stock purchase plan</li></ul>
+      
+    <h3>How to crack Snowflake</h3>
+    <ul class="detail-list">
+      <li><strong>Interview style:</strong> Solid enterprise loop. Java concurrency depth. Multi-tenant system design.</li>
+      <li><strong>Rounds:</strong> 4-5: recruiter -&gt; 2x coding -&gt; system design -&gt; hiring manager.</li>
+      <li><strong>Coding:</strong> Medium-Hard LeetCode, Java preferred. GC, concurrency, memory model questions common.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="detail-list"><li>3 weeks LC + Java concurrency review (JMM, thread pools, CompletableFuture)</li><li>Design: multi-tenant query engine, metadata store, cloud storage layer</li><li>Read Snowflake architecture blog (Virtual Warehouses, Cloud Services, Storage)</li><li>Prepare distributed systems stories from CK + MakeMyTrip</li><li>Practice explaining CAP tradeoffs in warehouse scheduling context</li></ul>
+      <p class="muted" style="margin-top:12px;"><a href="company_info.html" class="link-sm">Full company research page</a></p></div>
+    <div class="card"><h2>Resume</h2>
+      <p style="font-size:13px;color:#555;margin-bottom:12px;">Tailored resume for Snowflake.</p>
+      <a class="resume-link" href="Naveen_Reddy_Alka_Snowflake_Resume.pdf">Tailored Resume</a>
+      <a class="resume-link" href="../Naveen_Reddy_Alka_Resume.pdf" style="background:#555;">Generic Resume</a>
+    </div>
+    <div class="card"><h2>Key Skills Match</h2><span class="tag">Java</span> <span class="tag">Scala</span> <span class="tag">Cassandra</span> <span class="tag">Kubernetes</span> <span class="tag">AWS</span> <span class="tag">GCP</span></div>
+  </div>
+  <div id="tab-applications" class="tab-panel">
+    <div class="card">
+      <h2>Applications - Snowflake</h2>
+      <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div class="table-wrap"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Senior Software Engineer - Cloud Services</td><td><code>SNCOUS683A</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://careers.snowflake.com/us/en" target="_blank" class="link-sm">View</a></td></tr></tbody></table></div>
+      
+    </div>
+  </div>
+  <div id="tab-questions" class="tab-panel">
+    <div class="card">
+      <h2>Latest Questions - Snowflake</h2>
+      <p class="muted" style="margin-bottom:14px;">Recent coding, system design, and behavioral questions from Blind, LeetCode, Glassdoor, Reddit, and interview reports. Newest first; refreshed weekly.</p>
+      <div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">DEV Community | 2025-11</span></div><div class="q-text">Explain engineering trade-offs linking technical design to business metrics <a href="https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Refer.me | 2025-09</span></div><div class="q-text">Design real-time data ingestion pipeline at Snowflake scale <a href="https://www.refer.me/interview/technical-interview-for-snowflake-software-engineer-technical-interview-at-snowflake" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">System Design Handbook | 2025-10</span></div><div class="q-text">Design multi-tenant data warehouse isolating business units without workload interference <a href="https://www.systemdesignhandbook.com/guides/snowflake-system-design-interview/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">DEV Community | 2025-11</span></div><div class="q-text">Design quota management service with concurrent users, reclamation, and lock contention <a href="https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Exponent | 2026-01</span></div><div class="q-text">Check whether any character has been duplicated in a string <a href="https://www.tryexponent.com/guides/snowflake-software-engineer-interview" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Glassdoor | 2025-06</span></div><div class="q-text">Tree medium with pruning + greedy max-heap follow-up <a href="https://www.glassdoor.com/Interview/Snowflake-Software-Engineer-Interview-Questions-EI_IE928471.0,9_KO10,27.htm" target="_blank" class="link-sm">source</a></div></div>
+    </div>
+  </div>
+</div>
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#0F6E56;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#0F6E56}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#E1F5EE;color:#085041}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #0F6E56;color:#0F6E56;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#E1F5EE}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#0F6E56;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#E1F5EE;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#085041}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">Anthropic</span>
+</div>
+<div class="hero">
+  <h1>Anthropic</h1>
+  <p>S-Tier · Platform / Service Infra Engineering · San Francisco, CA · 45 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>🤖 Frontier AI company — Claude</span>
+    <span>🛂 H1B confirmed sponsor</span>
+    <span>✅ No layoffs — actively growing</span>
+    <span>Senior SWE target level</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Senior Software Engineer (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$318K</div><div class="lbl">Base (Senior)</div></div>
+    <div class="comp-card"><div class="num">$233K</div><div class="lbl">Stock / yr</div></div>
+    <div class="comp-card"><div class="num">$555K</div><div class="lbl">Median TC (Senior)</div></div>
+    <div class="comp-card"><div class="num">$890K</div><div class="lbl">Top reported</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Levels.fyi, January 2026. Equity vests 25%/yr over 4 years. Lead SWE median = $759K TC. Highest reported = $920K.</p>
+
+  <div class="highlight-box">
+    ⚡ Anthropic is the highest-paying match in this list for your profile. Senior SWE median TC in Bay Area = $554,750. Lead level (the next step) = $759K. This is your $500K–$800K bracket target.
+  </div>
+
+  <h2>Why you're a near-perfect match</h2>
+  <div class="info-box">
+    <strong>The parallel is almost exact:</strong> At CreditKarma you own a custom web framework (Finagle-based) used by ALL product development teams. At Anthropic Platform, you'd own service infra, deployment pipelines, and shared libraries used by ALL product teams. This is the same job. Your experience managing a legacy end-of-life framework while modernizing it is a bonus — Anthropic's Service Infra team faces the same challenge scaling for LLM workloads.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Private (venture-backed). Last valued ~$60B+ (2025). No IPO announced; high growth potential if AI market holds.</li>
+    <li><strong>Salary range (Bay Area):</strong> Senior SWE Bay Area: $450K-$650K TC typical; Staff/Lead $700K-$890K+ (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Fastest-growing frontier AI lab after OpenAI. Equity upside if IPO or secondary liquidity events.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>Premium medical/dental/vision</li><li>401(k) with company match</li><li>Catered lunches and snacks (SF office)</li><li>Generous equity grants (4-year vest, 25%/yr)</li><li>16+ weeks parental leave</li><li>Learning stipend / conference budget</li><li>Hybrid/in-office SF with flexible arrangements (team-dependent)</li></ul>
+
+    <h2 id="how-to-crack">How to crack Anthropic</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Structured loop, high bar. Mix of hard coding, infra/system design, and values alignment.</li>
+      <li><strong>Rounds:</strong> 5-6: recruiter screen -&gt; 2x coding -&gt; system design -&gt; infra/platform design -&gt; values/culture.</li>
+      <li><strong>Coding:</strong> Heavy LeetCode (Hard). Also distributed-systems flavored problems. Less pure puzzle, more real-world constraints at Staff level.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>4-6 weeks LeetCode: NeetCode 150 + 30 Hard (graphs, DP, concurrency)</li><li>Prep 3 system designs: deployment pipeline, service mesh, observability platform</li><li>Prep 2 infra designs: service registry, multi-tenant auth at scale</li><li>Read Anthropic core views + Responsible Scaling Policy</li><li>Practice Finagle EOL + 100% uptime modernization story (5 min + deep dive)</li><li>Mock 1 values round: AI safety, long-term impact, intellectual humility</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Describe a technical misjudgment that delayed a project - what did you learn? <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Tell me about a safety-first technical decision you made on a project <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Exponent | 2026-03</span></div><div class="q-text">Design inference batching on a single GPU maximizing utilization under synchronous user waits <a href="https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Design distributed search for 1B documents at 1M QPS with sharding and LLM inference scaling <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Exponent | 2025-08</span></div><div class="q-text">Design a batch inferencing API over GPU clusters (scheduling, cold start, model caching) <a href="https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-9bfb57" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Exponent | 2025-10</span></div><div class="q-text">Implement LRU cache with serialization and evolving constraints <a href="https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">Build a multi-threaded web crawler with deduplication and rate limiting <a href="https://interviewing.io/anthropic-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Medium / Exponent | 2025-09</span></div><div class="q-text">Implement an in-memory database with SET/GET/DELETE, then add TTL, filtered scans, and file compression levels <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Top-tier TC ($555K median Senior)</li><li>Direct match to platform framework ownership</li><li>Frontier AI mission</li><li>H1B confirmed; actively growing</li><li>Rewards real infra depth</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Very high coding bar</li><li>Job links expire quickly</li><li>In-office/hybrid in SF</li><li>Values round requires AI safety prep</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at Anthropic</h2>
+  <ul class="prep-list">
+    <li>5–6 rounds: recruiter → coding (2 rounds) → system design → infrastructure design → values/culture</li>
+    <li>Coding: Hard LeetCode, distributed systems problems. Heavier bar than typical — start LeetCode now.</li>
+    <li>System design: Design a deployment pipeline / service mesh / observability system at scale</li>
+    <li>Infra design: "How would you build our service registry?" — think Consul, service discovery, health checks</li>
+    <li>Values round: Anthropic cares about AI safety alignment. Read their core views document on anthropic.com</li>
+    <li>Key talking point: Managing Finagle (EOL framework) while keeping 100% uptime = huge credibility signal</li>
+    <li>Only contact from @anthropic.com emails — watch for scams, they explicitly warn candidates</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Staff Software Engineer, Platform</td><td><code>5157847008</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.anthropic.com/careers" target="_blank" class="apply-btn" style="display:inline-block;margin-top:.75rem">Open Anthropic careers ↗</a>
+</main>
+</body>
+</html>

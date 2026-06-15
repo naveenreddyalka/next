@@ -1,0 +1,96 @@
+---
+name: company-pages-maintenance
+description: Maintain company research HTML pages, latest interview questions, and weekly auto-refresh pipeline. Use when user asks to update company info, add interview questions, refresh company pages, or edit comp/benefits/interview prep sections.
+---
+
+# Company Pages Maintenance
+
+## Architecture (user preference)
+
+| File | Role |
+|------|------|
+| `{company}/index.html` | Apply + My Applications + **Latest Questions** tabs |
+| `{company}/company_info.html` | Full research page (comp, pros/cons, interview) — **keep separate** |
+
+Do not consolidate company_info into index tabs.
+
+## Source data files (agents edit these)
+
+| File | Purpose |
+|------|---------|
+| `files/scripts/company_extra_data.py` | Company type, salary range, growth, perks, how-to-crack prep |
+| `files/scripts/build_company_pages_data.py` | Base company rows, job links, application tracker data |
+| `files/scripts/company_questions_seed.py` | Permanent interview question seed bank |
+| `files/scripts/company_questions_inbox.json` | New questions to merge (prepended on refresh) |
+
+## Add latest interview questions
+
+Format for seed or inbox:
+
+```python
+{"type": "Coding", "question": "...", "source": "Blind", "reported": "2026-06", "url": "https://..."}
+```
+
+Types: `Coding` | `System Design` | `Behavioral`
+
+**Inbox** (quick add — prepended, deduped):
+
+```json
+{
+  "databricks": [
+    {
+      "type": "Coding",
+      "question": "Implement thread-safe logger",
+      "source": "Blind",
+      "reported": "2026-06",
+      "url": ""
+    }
+  ]
+}
+```
+
+Research from public sources: Blind, LeetCode Discuss, Glassdoor, interviewing.io, Exponent, Reddit. No login required for most.
+
+## Regenerate all HTML
+
+```bash
+~/Home/next/files/scripts/refresh_company_pages.sh
+```
+
+Pipeline order:
+1. `update_latest_questions.py` — merge seed + inbox ? `company_latest_questions.json`
+2. `build_company_pages_data.py` — merge extra data + questions ? `company_pages_data.json`
+3. `gen_company_index.py` — rebuild `{company}/index.html`
+4. `gen_company_info.py` — rebuild `{company}/company_info.html`
+
+Log: `~/Home/next/.refresh_company_pages.log`
+
+## Weekly auto-refresh (LaunchAgent)
+
+Label: `com.naveen.next.refresh-company-pages`  
+Schedule: Sunday 9:00 AM + RunAtLoad
+
+Re-install after moving project:
+
+```bash
+~/Home/next/files/scripts/install_refresh_schedule.sh
+```
+
+Install script writes plist with current `PROJECT_ROOT` path automatically.
+
+## Companies (13)
+
+anthropic, openai, xai, nvidia, servicenow, confluent, databricks, stripe, google, snowflake, netflix, uber, spacex
+
+## Shared renderers
+
+HTML section builders live in `files/scripts/company_sections.py`:
+- `render_snapshot_block`, `render_how_to_crack_block`, `render_latest_questions`
+
+Edit renderers there; gen scripts import them.
+
+## User does not run scripts
+
+Agent edits source data and runs refresh. User only opens HTML in browser.
+
+Hub entry: `open ~/Home/next/index.html`

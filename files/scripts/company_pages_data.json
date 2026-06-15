@@ -1,0 +1,2230 @@
+{
+  "companies": {
+    "anthropic": {
+      "name": "Anthropic",
+      "color": "#c85f31",
+      "resume_slug": "Anthropic",
+      "tier": "S-Tier",
+      "focus": "Platform / Service Infra Engineering",
+      "location": "San Francisco, CA - ~45 min from San Ramon",
+      "meta": [
+        "Frontier AI - Claude",
+        "H1B confirmed",
+        "No layoffs",
+        "Staff+ target"
+      ],
+      "comp": [
+        [
+          "$318K",
+          "Base"
+        ],
+        [
+          "$233K",
+          "Stock/yr"
+        ],
+        [
+          "$555K",
+          "Median TC"
+        ],
+        [
+          "$890K",
+          "Top reported"
+        ]
+      ],
+      "comp_note": "Source: Levels.fyi, Jan 2026. Lead SWE median = $759K TC.",
+      "h1b": "Confirmed sponsor. Ask early at recruiter screen.",
+      "highlight": "Highest-paying match for your profile. Senior SWE median $555K; Lead = $759K.",
+      "fit": "Platform role at Anthropic = your Credit Karma Portals Framework role.",
+      "pros": [
+        "Top-tier TC ($555K median Senior)",
+        "Direct match to platform framework ownership",
+        "Frontier AI mission",
+        "H1B confirmed; actively growing",
+        "Rewards real infra depth"
+      ],
+      "cons": [
+        "Very high coding bar",
+        "Job links expire quickly",
+        "In-office/hybrid in SF",
+        "Values round requires AI safety prep"
+      ],
+      "benefits": [
+        "Premium medical/dental/vision",
+        "401(k) with company match",
+        "Catered lunches and snacks (SF office)",
+        "Generous equity grants (4-year vest, 25%/yr)",
+        "16+ weeks parental leave",
+        "Learning stipend / conference budget",
+        "Hybrid/in-office SF with flexible arrangements (team-dependent)"
+      ],
+      "interview": [
+        "5-6 rounds: recruiter, coding (2x), system design, infra design, values",
+        "Coding: Hard LeetCode + distributed systems",
+        "System design: deployment pipeline, service mesh, observability at scale",
+        "Infra design: service registry, Consul, health checks",
+        "Read Anthropic core views; only trust @anthropic.com emails"
+      ],
+      "jobs": [
+        {
+          "title": "Staff Software Engineer, Platform",
+          "id": "5157847008",
+          "url": "https://boards.greenhouse.io/anthropic/jobs/5157847008",
+          "fit": "Platform framework ownership, TypeScript/Scala/Node.js, data contracts, distributed systems."
+        }
+      ],
+      "profile": "Staff-level Software Engineer with 17+ years building platform infrastructure and distributed backend systems. At Credit Karma, designed and own the Portal Provider framework relied on by 90%+ of portals clients. MS CS, ASU 2021.",
+      "tags": [
+        "Scala",
+        "TypeScript",
+        "Java",
+        "Kafka",
+        "Kubernetes",
+        "Platform Engineering",
+        "Finagle"
+      ],
+      "target_apps": [
+        {
+          "role": "Staff Software Engineer, Platform",
+          "id": "5157847008",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://boards.greenhouse.io/anthropic/jobs/5157847008"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Private (venture-backed). Last valued ~$60B+ (2025). No IPO announced; high growth potential if AI market holds.",
+        "salary_range": "Senior SWE Bay Area: $450K-$650K TC typical; Staff/Lead $700K-$890K+ (Levels.fyi 2026).",
+        "growth_note": "Fastest-growing frontier AI lab after OpenAI. Equity upside if IPO or secondary liquidity events.",
+        "perks": [
+          "Premium medical/dental/vision",
+          "401(k) with company match",
+          "Catered lunches and snacks (SF office)",
+          "Generous equity grants (4-year vest, 25%/yr)",
+          "16+ weeks parental leave",
+          "Learning stipend / conference budget",
+          "Hybrid/in-office SF with flexible arrangements (team-dependent)"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Structured loop, high bar. Mix of hard coding, infra/system design, and values alignment.",
+        "rounds": "5-6: recruiter screen -> 2x coding -> system design -> infra/platform design -> values/culture.",
+        "coding": "Heavy LeetCode (Hard). Also distributed-systems flavored problems. Less pure puzzle, more real-world constraints at Staff level.",
+        "prep_plan": [
+          "4-6 weeks LeetCode: NeetCode 150 + 30 Hard (graphs, DP, concurrency)",
+          "Prep 3 system designs: deployment pipeline, service mesh, observability platform",
+          "Prep 2 infra designs: service registry, multi-tenant auth at scale",
+          "Read Anthropic core views + Responsible Scaling Policy",
+          "Practice Finagle EOL + 100% uptime modernization story (5 min + deep dive)",
+          "Mock 1 values round: AI safety, long-term impact, intellectual humility"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Describe a technical misjudgment that delayed a project - what did you learn?",
+          "source": "Medium",
+          "reported": "2025-09",
+          "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Behavioral",
+          "question": "Tell me about a safety-first technical decision you made on a project",
+          "source": "Medium",
+          "reported": "2025-09",
+          "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design inference batching on a single GPU maximizing utilization under synchronous user waits",
+          "source": "Exponent",
+          "reported": "2026-03",
+          "url": "https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design distributed search for 1B documents at 1M QPS with sharding and LLM inference scaling",
+          "source": "Medium",
+          "reported": "2025-09",
+          "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design a batch inferencing API over GPU clusters (scheduling, cold start, model caching)",
+          "source": "Exponent",
+          "reported": "2025-08",
+          "url": "https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-9bfb57",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement LRU cache with serialization and evolving constraints",
+          "source": "Exponent",
+          "reported": "2025-10",
+          "url": "https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Build a multi-threaded web crawler with deduplication and rate limiting",
+          "source": "interviewing.io",
+          "reported": "2025-12",
+          "url": "https://interviewing.io/anthropic-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement an in-memory database with SET/GET/DELETE, then add TTL, filtered scans, and file compression levels",
+          "source": "Medium / Exponent",
+          "reported": "2025-09",
+          "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "openai": {
+      "name": "OpenAI",
+      "color": "#10a37f",
+      "resume_slug": "Openai",
+      "tier": "S-Tier",
+      "focus": "Platform / Backend Infrastructure",
+      "location": "San Francisco, CA - ~45 min from San Ramon",
+      "meta": [
+        "ChatGPT / GPT-4o",
+        "H1B confirmed",
+        "Actively growing",
+        "Senior/Staff target"
+      ],
+      "comp": [
+        [
+          "$300K",
+          "Base"
+        ],
+        [
+          "$500K",
+          "PPU/yr"
+        ],
+        [
+          "$800K",
+          "Typical TC"
+        ],
+        [
+          "$1.28M",
+          "Top reported"
+        ]
+      ],
+      "comp_note": "PPUs tied to profitability. Best shot at $800K+ without promotion.",
+      "h1b": "Confirmed sponsor - verify at recruiter screen; only @openai.com contacts.",
+      "highlight": "Highest-TC opportunity in the entire list. Apply in parallel with Anthropic.",
+      "fit": "Backend/platform teams build APIs and infra all product teams depend on.",
+      "pros": [
+        "Highest typical TC (~$800K Senior)",
+        "Platform work maps to your background",
+        "Rapid growth and equity upside",
+        "H1B confirmed sponsor"
+      ],
+      "cons": [
+        "Intense competition for platform roles",
+        "Mission alignment expected",
+        "PPU value tied to profitability",
+        "Hard LeetCode + distributed systems rounds"
+      ],
+      "benefits": [
+        "Top-tier compensation (base + PPUs)",
+        "Full medical/dental/vision + mental health",
+        "401(k) match",
+        "Catered meals (SF campus)",
+        "Equity via Profit Participation Units (PPUs)",
+        "Parental leave and fertility benefits",
+        "Hybrid SF office"
+      ],
+      "interview": [
+        "5-6 rounds: recruiter, coding (2x), system design, infra design, values",
+        "Coding: Hard LeetCode - distributed systems and concurrency",
+        "System design: API gateway, distributed job scheduler, container orchestration",
+        "Infra: 100K RPS, 99.99% uptime - circuit breakers, rate limiting",
+        "Lead with Finagle EOL + 100% uptime modernization story"
+      ],
+      "jobs": [
+        {
+          "title": "Senior Staff Backend Software Engineer, API Platform",
+          "id": "API-Platform-SWE",
+          "url": "https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/",
+          "fit": "API platform at Credit Karma, distributed systems, TypeScript/Scala/Java."
+        }
+      ],
+      "profile": "Senior Staff Software Engineer with 17+ years in platform infrastructure and API systems. Owns Finagle-based web framework at Credit Karma. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Scala",
+        "TypeScript",
+        "Kafka",
+        "Kubernetes",
+        "Platform Engineering"
+      ],
+      "target_apps": [
+        {
+          "role": "Senior Staff Backend SWE, API Platform",
+          "id": "API-Platform-SWE",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Private (capped-profit structure). Massive revenue growth from ChatGPT/API. IPO timing unclear; PPUs tied to profitability.",
+        "salary_range": "Senior/Staff Bay Area: $700K-$900K+ TC typical; top reports $1.28M (Levels.fyi 2026).",
+        "growth_note": "Category leader in generative AI. PPU equity can appreciate rapidly with revenue growth.",
+        "perks": [
+          "Top-tier compensation (base + PPUs)",
+          "Full medical/dental/vision + mental health",
+          "401(k) match",
+          "Catered meals (SF campus)",
+          "Equity via Profit Participation Units (PPUs)",
+          "Parental leave and fertility benefits",
+          "Hybrid SF office"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Similar to Anthropic: rigorous, mission-aware, infra-heavy for platform roles.",
+        "rounds": "5-6: recruiter -> 2x coding -> system design -> infra design -> mission/values.",
+        "coding": "Hard LeetCode + concurrency/distributed systems. Expect follow-ups on production tradeoffs.",
+        "prep_plan": [
+          "LeetCode Hard daily (6 weeks): focus concurrency, thread pools, rate limiters",
+          "Design: API gateway at 100K RPS, distributed job scheduler, canary deploy system",
+          "Read OpenAI mission charter and preparedness framework",
+          "Prepare 3 STAR stories on platform ownership under SLA pressure",
+          "Practice explaining Finagle migration without downtime",
+          "Study circuit breakers, backpressure, idempotency for API platform round"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Technical project deep dive - what did YOU own vs the team?",
+          "source": "Exponent",
+          "reported": "2025-08",
+          "url": "https://www.tryexponent.com/experiences/openai-senior-software-engineer-interview-60a1ae",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design model-serving platform with request batching, queuing, and GPU utilization",
+          "source": "interviewing.io",
+          "reported": "2025-12",
+          "url": "https://interviewing.io/openai-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design ChatGPT-scale chat service - press on 100x/1000x load growth",
+          "source": "Exponent",
+          "reported": "2025-10",
+          "url": "https://www.tryexponent.com/guides/openai-software-engineer-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement Unix cd command with symlink resolution and cycle detection",
+          "source": "IGotAnOffer",
+          "reported": "2025-11",
+          "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Build a multithreaded web crawler with URL deduplication and failure handling",
+          "source": "IGotAnOffer",
+          "reported": "2025-11",
+          "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement a time-based key-value store with get/set and expiry",
+          "source": "IGotAnOffer",
+          "reported": "2025-11",
+          "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "xai": {
+      "name": "xAI",
+      "color": "#000000",
+      "resume_slug": "Xai",
+      "tier": "High-upside",
+      "focus": "Grok / Platform Engineering",
+      "location": "Palo Alto / San Francisco",
+      "meta": [
+        "Pre-IPO AI startup",
+        "Small team, high ownership",
+        "Fast 2-3 round process"
+      ],
+      "comp": [
+        [
+          "$250K-$400K+",
+          "Base"
+        ],
+        [
+          "Significant",
+          "Pre-IPO equity"
+        ],
+        [
+          "-",
+          "TC varies"
+        ],
+        [
+          "High",
+          "Equity upside"
+        ]
+      ],
+      "comp_note": "Pre-IPO equity could be very valuable; base lower than mega-caps.",
+      "h1b": "Confirm sponsorship at recruiter screen.",
+      "highlight": "Small team, high ownership. Platform engineering matches Finagle framework ownership.",
+      "fit": "Thrives in small, high-impact teams moving fast.",
+      "pros": [
+        "Very fast interview process",
+        "High ownership on Grok",
+        "Pre-IPO equity upside",
+        "Platform experience relevant"
+      ],
+      "cons": [
+        "H1B process less proven",
+        "Long hours likely",
+        "Less predictable TC",
+        "Smaller brand stability"
+      ],
+      "benefits": [
+        "Large pre-IPO equity grants",
+        "Small team = high ownership",
+        "Fast decision-making",
+        "Medical/dental/vision (standard startup package)",
+        "401(k) (verify at offer stage)",
+        "Palo Alto / SF office"
+      ],
+      "interview": [
+        "2-3 rounds total",
+        "Technical screen: coding + system design",
+        "Loop: deep system design, coding, culture fit",
+        "Lead with MakeMyTrip payments + Credit Karma platform framework"
+      ],
+      "jobs": [
+        {
+          "title": "Senior Grok Engineer",
+          "id": "4823149007",
+          "url": "https://job-boards.greenhouse.io/xai/jobs/4823149007",
+          "fit": "Scala/TypeScript/Java platform engineering."
+        },
+        {
+          "title": "Software Engineer - Grok Voice",
+          "id": "4720475007",
+          "url": "https://job-boards.greenhouse.io/xai/jobs/4720475007",
+          "fit": "Distributed backend, event-driven architecture."
+        }
+      ],
+      "profile": "Staff Software Engineer with 17+ years in platform infrastructure. Architected Portal Provider at Credit Karma. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Scala",
+        "TypeScript",
+        "Kafka",
+        "Kubernetes",
+        "Platform Engineering"
+      ],
+      "target_apps": [
+        {
+          "role": "Senior Grok Engineer",
+          "id": "4823149007",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://job-boards.greenhouse.io/xai/jobs/4823149007"
+        },
+        {
+          "role": "Software Engineer - Grok Voice",
+          "id": "4720475007",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://job-boards.greenhouse.io/xai/jobs/4720475007"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Private (Elon Musk). Pre-IPO; part of X ecosystem. Very high upside, very high risk.",
+        "salary_range": "Senior engineer: $250K-$400K base + significant pre-IPO equity. TC varies widely.",
+        "growth_note": "Small team scaling Grok. Equity could be valuable if xAI exits or grows with X integration.",
+        "perks": [
+          "Large pre-IPO equity grants",
+          "Small team = high ownership",
+          "Fast decision-making",
+          "Medical/dental/vision (standard startup package)",
+          "401(k) (verify at offer stage)",
+          "Palo Alto / SF office"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Fast, lean loop. Less process than FAANG. Depth and speed matter more than polish.",
+        "rounds": "2-3 total: technical screen (1hr) -> virtual loop (2-3 hrs) coding + system design + culture.",
+        "coding": "Medium-Hard LeetCode plus practical system thinking. May skew practical over pure LC.",
+        "prep_plan": [
+          "2 weeks focused LC: 40 Medium, 15 Hard (arrays, graphs, system design basics)",
+          "Prepare end-to-end system stories: MakeMyTrip payments + CK platform framework",
+          "Practice whiteboarding a rate-limited API in 45 min",
+          "Read about Grok product and xAI mission before culture chat",
+          "Emphasize ownership, speed, and shipping under ambiguity"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Why xAI / Grok - ownership and speed under ambiguity",
+          "source": "General prep",
+          "reported": "2025-12",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design a low-latency inference API serving Grok at scale",
+          "source": "General prep",
+          "reported": "2025-12",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Rate-limited API design with sliding window per user",
+          "source": "General / Blind pattern",
+          "reported": "2025-12",
+          "url": "",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "nvidia": {
+      "name": "NVIDIA",
+      "color": "#76b900",
+      "resume_slug": "Nvidia",
+      "tier": "S-Tier",
+      "focus": "Cloud Platform Engineering",
+      "location": "Santa Clara, CA - ~30 min from San Ramon",
+      "meta": [
+        "Glassdoor #1 Tech 2026",
+        "3,244 H1B FY2025",
+        "No major layoffs",
+        "IC4 target"
+      ],
+      "comp": [
+        [
+          "$250K",
+          "Base"
+        ],
+        [
+          "$129K",
+          "Stock/yr"
+        ],
+        [
+          "$369K",
+          "Median TC"
+        ],
+        [
+          "$608K+",
+          "IC6 top"
+        ]
+      ],
+      "comp_note": "TC below $500K at IC4 - negotiate stock.",
+      "h1b": "3,244 H1B approvals FY2025; dedicated immigration counsel.",
+      "highlight": "Scala + Kafka + Cassandra + K8s maps to NGC Cloud Platform.",
+      "fit": "Cross-team shared infrastructure = platform multiplier work NVIDIA values.",
+      "pros": [
+        "Glassdoor #1 tech 2026",
+        "Strong H1B volume",
+        "30 min commute",
+        "AI/cloud tailwind",
+        "Flat org"
+      ],
+      "cons": [
+        "Median TC ($369K) below target at IC4",
+        "Need IC5 or equity negotiation",
+        "Santa Clara not SF"
+      ],
+      "benefits": [
+        "RSU grants + refresh cycles",
+        "ESPP (employee stock purchase plan)",
+        "401(k) with generous match",
+        "On-site cafes and snacks (Santa Clara campus)",
+        "Excellent medical/dental/vision",
+        "Parental leave and backup childcare",
+        "GPU employee purchase discounts"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, technical (coding + system design), hiring manager",
+        "Coding: Medium-Hard LeetCode",
+        "System design: distributed cache, multi-tenant cloud infra",
+        "Emphasize platform ownership and open-source"
+      ],
+      "jobs": [
+        {
+          "title": "Senior Cloud Platform Software Engineer",
+          "id": "JR2003876",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/JR2003876",
+          "fit": "Kubernetes, AWS/GCP/Azure, distributed microservices, platform design."
+        }
+      ],
+      "profile": "Senior Software Engineer with 17+ years in cloud platform and distributed infrastructure. MS CS, ASU 2021.",
+      "tags": [
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "GCP",
+        "Java",
+        "Kafka",
+        "Distributed Systems"
+      ],
+      "target_apps": [
+        {
+          "role": "Senior Cloud Platform Software Engineer",
+          "id": "JR2003876",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/JR2003876"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NASDAQ: NVDA). AI boom drove massive market cap growth. RSU liquidity is excellent.",
+        "salary_range": "IC4 Senior Bay Area: $300K-$450K TC; IC5/IC6 $500K-$650K+ (Levels.fyi 2026).",
+        "growth_note": "Public stock with strong AI tailwind. RSUs are liquid; less lottery than pre-IPO.",
+        "perks": [
+          "RSU grants + refresh cycles",
+          "ESPP (employee stock purchase plan)",
+          "401(k) with generous match",
+          "On-site cafes and snacks (Santa Clara campus)",
+          "Excellent medical/dental/vision",
+          "Parental leave and backup childcare",
+          "GPU employee purchase discounts"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Traditional big-tech loop. Balanced coding + system design. Flat culture.",
+        "rounds": "4-5: recruiter -> 2-3 technical (coding + design) -> hiring manager.",
+        "coding": "Medium-Hard LeetCode. Java/C++ common. Clean code and communication scored.",
+        "prep_plan": [
+          "3-4 weeks LC: NeetCode 75 + company tagged Medium/Hard",
+          "System design: distributed cache, multi-tenant cloud infra, telemetry pipeline",
+          "Highlight open-source and platform multiplier work",
+          "Prepare Kubernetes + multi-cloud stories from CK",
+          "Research NGC Cloud Platform if applying to cloud roles"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Explain CUDA memory coalescing and how it affects kernel performance",
+          "source": "huru.ai",
+          "reported": "2025-10",
+          "url": "https://huru.ai/nvidia-interview-questions-mastering-cuda-inference-systems/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design large-scale GPU inference scheduling and model serving pipeline",
+          "source": "IGotAnOffer",
+          "reported": "2025-05",
+          "url": "https://igotanoffer.com/en/advice/nvidia-software-engineer-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Graph/tree medium problems with memory or concurrency follow-ups",
+          "source": "Leetcode Wizard",
+          "reported": "2025-08",
+          "url": "https://leetcodewizard.io/blog/mastering-the-nvidia-software-engineer-interview-questions-process-and-expert-tips-for-preparation",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "LRU Cache - O(1) get/put",
+          "source": "LeetCode / jointaro",
+          "reported": "2025-06",
+          "url": "https://www.jointaro.com/interviews/companies/nvidia/",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "servicenow": {
+      "name": "ServiceNow",
+      "color": "#62d84e",
+      "resume_slug": "Servicenow",
+      "tier": "S-Tier",
+      "focus": "AI Platform Engineering",
+      "location": "Santa Clara, CA - ~30 min (closest target)",
+      "meta": [
+        "Glassdoor Top 3 Tech 2026",
+        "H1B active enterprise sponsor",
+        "Stable",
+        "Staff target"
+      ],
+      "comp": [
+        [
+          "$200K",
+          "Base"
+        ],
+        [
+          "$200K",
+          "Stock/yr"
+        ],
+        [
+          "$400-550K",
+          "TC range"
+        ],
+        [
+          "$700K+",
+          "Principal/Staff"
+        ]
+      ],
+      "comp_note": "Staff/Principal path to $700K+.",
+      "h1b": "Active enterprise sponsor with established immigration process.",
+      "highlight": "Closest target geographically. Glassdoor Top 3, no major layoffs.",
+      "fit": "Java platform + cross-team framework = ServiceNow platform multiplier needs.",
+      "pros": [
+        "Shortest commute (~30 min)",
+        "Very stable employer",
+        "Deep Java match (17 years)",
+        "TC can hit $500K at Staff",
+        "Enterprise H1B process"
+      ],
+      "cons": [
+        "Enterprise SaaS pace slower than AI labs",
+        "Base lower than AI labs",
+        "Less exciting brand"
+      ],
+      "benefits": [
+        "RSU equity program with refresh",
+        "401(k) match + ESPP",
+        "Free snacks and cafes (Santa Clara HQ)",
+        "Strong medical/dental/vision",
+        "Generous PTO + parental leave",
+        "Hybrid work (3 days in office typical)",
+        "Learning and certification reimbursement"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, coding (2x), system design, hiring manager",
+        "Coding: Medium LeetCode - Java preferred",
+        "System design: multi-tenant workflow engine",
+        "Lead with platform framework ownership at Credit Karma"
+      ],
+      "jobs": [
+        {
+          "title": "Staff Software Engineer, Backend Java",
+          "id": "744000086443311",
+          "url": "https://careers.servicenow.com/jobs/744000086443311/staff-software-engineer-backend-java/",
+          "fit": "17+ years Java/Spring/Hibernate, REST/GraphQL, event-driven microservices."
+        }
+      ],
+      "profile": "Staff Java Backend Software Engineer with 17+ years in enterprise distributed systems. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Hibernate",
+        "Kafka",
+        "Cassandra",
+        "Microservices"
+      ],
+      "target_apps": [
+        {
+          "role": "Staff Software Engineer, Backend Java",
+          "id": "744000086443311",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://careers.servicenow.com/jobs/744000086443311/staff-software-engineer-backend-java/"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NYSE: NOW). Enterprise SaaS leader. Stable growth, predictable RSUs.",
+        "salary_range": "Senior/Staff Bay Area: $400K-$550K TC; Principal $600K-$700K+ (Levels.fyi 2026).",
+        "growth_note": "Steady public comp. AI platform push creates new high-impact teams.",
+        "perks": [
+          "RSU equity program with refresh",
+          "401(k) match + ESPP",
+          "Free snacks and cafes (Santa Clara HQ)",
+          "Strong medical/dental/vision",
+          "Generous PTO + parental leave",
+          "Hybrid work (3 days in office typical)",
+          "Learning and certification reimbursement"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Enterprise tech loop. Java-heavy. Emphasis on reliability and clean design.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> hiring manager.",
+        "coding": "Medium LeetCode. Java preferred. Idiomatic Spring/Java code appreciated.",
+        "prep_plan": [
+          "2-3 weeks LC Medium (Java solutions out loud)",
+          "Design: multi-tenant workflow engine, notification platform, SDK for internal teams",
+          "Lead with CK platform framework = ServiceNow platform multiplier parallel",
+          "Prep Spring Boot, microservices, and HA patterns",
+          "Practice explaining tradeoffs for enterprise customers (uptime, backward compat)"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Tell me about staying Hungry & Humble while shipping under pressure",
+          "source": "cvcraft.roynex",
+          "reported": "2026-04",
+          "url": "https://cvcraft.roynex.com/companies/servicenow",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Shard a relational schema for 5,000 enterprise tenants with data isolation",
+          "source": "cvcraft.roynex",
+          "reported": "2026-04",
+          "url": "https://cvcraft.roynex.com/companies/servicenow",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design permissions model for CMDB with 100M configuration items and role hierarchies",
+          "source": "Tech Interview Dot Org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/companies/servicenow/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design ServiceNow incident-management workflow engine for millions of workflows across 8K tenants",
+          "source": "Tech Interview Dot Org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/companies/servicenow/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Topological sort - when would you use it in a workflow product?",
+          "source": "cvcraft.roynex",
+          "reported": "2026-04",
+          "url": "https://cvcraft.roynex.com/companies/servicenow",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement LRU cache and explain trade-offs",
+          "source": "cvcraft.roynex",
+          "reported": "2026-04",
+          "url": "https://cvcraft.roynex.com/companies/servicenow",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Trapping Rain Water - two-pointer / sliding window pattern",
+          "source": "TechPrep",
+          "reported": "2026-01",
+          "url": "https://www.techprep.app/blog/servicenow-interview-process",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "confluent": {
+      "name": "Confluent",
+      "color": "#172B4D",
+      "resume_slug": "Confluent",
+      "tier": "A-Tier",
+      "focus": "Kafka / Streaming Platform",
+      "location": "Mountain View, CA - ~40 min",
+      "meta": [
+        "Company behind Apache Kafka",
+        "H1B active sponsor",
+        "No major layoffs",
+        "L5 target"
+      ],
+      "comp": [
+        [
+          "$220K",
+          "Base"
+        ],
+        [
+          "$297K",
+          "Stock/yr"
+        ],
+        [
+          "$517K",
+          "Median TC"
+        ],
+        [
+          "$733K",
+          "L6a top"
+        ]
+      ],
+      "comp_note": "L5 median $517K hits $500K target.",
+      "h1b": "Active sponsor - confirm at recruiter screen.",
+      "highlight": "Kafka at 5 companies - almost unmatched candidate profile.",
+      "fit": "8+ years Kafka across MakeMyTrip, Wenova, Pearson, Nordstrom, Credit Karma.",
+      "pros": [
+        "Best Kafka depth story",
+        "L5 median hits TC target",
+        "Work with Kafka experts",
+        "Strong equity upside"
+      ],
+      "cons": [
+        "Narrower domain (streaming only)",
+        "Mountain View commute",
+        "Deep Kafka domain round"
+      ],
+      "benefits": [
+        "RSU equity + refresh grants",
+        "401(k) match",
+        "Free lunch/snacks (Mountain View office)",
+        "Medical/dental/vision",
+        "Parental leave",
+        "Kafka Summit / training access",
+        "Hybrid-friendly"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, coding (2x), system design, Kafka domain",
+        "System design: event streaming platform, multi-tenant Kafka cluster",
+        "Kafka domain: consumer groups, exactly-once, compaction, replication"
+      ],
+      "jobs": [
+        {
+          "title": "Senior Software Engineer - Apache Kafka",
+          "id": "15812054",
+          "url": "https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka",
+          "fit": "Kafka at 5 companies spanning fintech, ecommerce, edtech."
+        }
+      ],
+      "profile": "Senior Software Engineer with deep Apache Kafka production experience across 5 companies. MS CS, ASU 2021.",
+      "tags": [
+        "Apache Kafka",
+        "Java",
+        "Scala",
+        "Event-Driven Architecture",
+        "Distributed Systems"
+      ],
+      "target_apps": [
+        {
+          "role": "Senior Software Engineer - Apache Kafka",
+          "id": "15812054",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NASDAQ: CFLT). Kafka company. Stock volatile but liquid RSUs.",
+        "salary_range": "L5 Senior Bay Area: $480K-$580K TC median; L6 Staff $650K-$733K+ (Levels.fyi 2026).",
+        "growth_note": "Public with strong streaming/data tailwind. RSU refresh helps total comp.",
+        "perks": [
+          "RSU equity + refresh grants",
+          "401(k) match",
+          "Free lunch/snacks (Mountain View office)",
+          "Medical/dental/vision",
+          "Parental leave",
+          "Kafka Summit / training access",
+          "Hybrid-friendly"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Strong domain round on Kafka. Coding is solid but not Google-hard.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> Kafka domain/culture.",
+        "coding": "Medium LeetCode, Java preferred. Correctness and clarity over speed.",
+        "prep_plan": [
+          "2 weeks LC Medium + review Kafka internals deeply",
+          "Study: consumer groups, rebalancing, exactly-once, compaction, ISR, replication",
+          "Design: multi-tenant Kafka cluster, event streaming platform, CDC pipeline",
+          "Prepare 'Kafka at 5 companies' narrative with specific failure stories",
+          "Read Confluent blog on cloud control plane architecture",
+          "Mock domain round: explain a production Kafka incident you resolved"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "System Design",
+          "question": "Design URL shortener with streaming analytics hook",
+          "source": "LeetCode Discuss",
+          "reported": "2024-12",
+          "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "LFU cache with thread-safety follow-up",
+          "source": "LeetCode Discuss",
+          "reported": "2024-12",
+          "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement LRU cache with TTL expiration",
+          "source": "Glassdoor / jointaro",
+          "reported": "2025-11",
+          "url": "https://www.jointaro.com/interviews/companies/confluent/work-experiences/software-engineer-bengaluru-november-7-2025-4-09fb2dd5/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Validate Sudoku board and extend to Sudoku solver",
+          "source": "Glassdoor / LeetCode Discuss",
+          "reported": "2024-12",
+          "url": "https://www.glassdoor.com/Interview/Confluent-Software-Engineer-Interview-Questions-EI_IE1048428.0,9_KO10,27.htm",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Word and phrase search across a list of documents",
+          "source": "LeetCode Discuss / CodingKaro",
+          "reported": "2024-12",
+          "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Behavioral",
+          "question": "Deep Kafka domain: compaction, ISR, partition rebalancing under failure",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design event streaming platform - consumer groups, exactly-once semantics",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design multi-tenant Kafka cluster with isolation and rebalancing",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Medium Java - correctness over speed, clean communication",
+          "source": "Confluent prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "databricks": {
+      "name": "Databricks",
+      "color": "#ff3621",
+      "resume_slug": "Databricks",
+      "tier": "A-Tier",
+      "focus": "Data + AI Platform Engineering",
+      "location": "San Francisco, CA - ~50 min",
+      "meta": [
+        "Data+AI leader",
+        "H1B confirmed",
+        "No major layoffs",
+        "L5/Staff target"
+      ],
+      "comp": [
+        [
+          "$220K",
+          "Base L5"
+        ],
+        [
+          "$215K",
+          "Stock/yr"
+        ],
+        [
+          "$435K",
+          "Median TC"
+        ],
+        [
+          "$1.68M",
+          "L7 top"
+        ]
+      ],
+      "comp_note": "Pre-IPO equity upside. L6 ($700K+) within 18 months is realistic.",
+      "h1b": "Confirmed on careers page - case-by-case at interview stage.",
+      "highlight": "Pre-IPO equity upside. Written largely in Scala - direct Credit Karma relevance.",
+      "fit": "Scala + Spark + Kubernetes + distributed data systems - your exact stack.",
+      "pros": [
+        "Scala/Kafka/Cassandra stack match",
+        "Pre-IPO equity upside",
+        "Multiple Staff roles",
+        "Strong engineering culture",
+        "H1B confirmed"
+      ],
+      "cons": [
+        "L5 median TC below $500K day-one",
+        "Greenhouse security code friction",
+        "SF commute ~50 min"
+      ],
+      "benefits": [
+        "Pre-IPO equity (likely RSUs at IPO)",
+        "401(k) match",
+        "Catered lunches (SF / Mountain View offices)",
+        "Premium medical/dental/vision",
+        "Parental leave + wellness stipend",
+        "Learning budget and conference travel",
+        "Hybrid SF / MV offices"
+      ],
+      "interview": [
+        "5-6 rounds: recruiter, coding (2x), system design, domain/architecture, HM",
+        "Coding: Medium-Hard LeetCode; Scala/Java preferred",
+        "Domain: Spark execution model, shuffle, partitions, fault tolerance"
+      ],
+      "jobs": [
+        {
+          "title": "Staff Software Engineer - Distributed Data Systems",
+          "id": "6937001002",
+          "url": "https://www.databricks.com/company/careers/open-positions/6937001002",
+          "fit": "Cassandra, CouchBase, Elasticsearch, multi-datacenter architectures."
+        }
+      ],
+      "profile": "Senior/Staff Software Engineer specializing in distributed data systems. Scala, Java, Kafka, Kubernetes. MS CS, ASU 2021.",
+      "tags": [
+        "Distributed Systems",
+        "Cassandra",
+        "Kafka",
+        "Java",
+        "Scala",
+        "Kubernetes"
+      ],
+      "target_apps": [],
+      "snapshot": {
+        "company_type": "Private (pre-IPO). Last private rounds ~$43B+ valuation. IPO widely expected; major equity upside.",
+        "salary_range": "L5 Senior/Staff Bay Area: $380K-$500K TC; L6 Staff $650K-$850K+ (Levels.fyi 2026).",
+        "growth_note": "Pre-IPO equity is the main upside bet. Strong data+AI market position.",
+        "perks": [
+          "Pre-IPO equity (likely RSUs at IPO)",
+          "401(k) match",
+          "Catered lunches (SF / Mountain View offices)",
+          "Premium medical/dental/vision",
+          "Parental leave + wellness stipend",
+          "Learning budget and conference travel",
+          "Hybrid SF / MV offices"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Structured loop with Spark/distributed-systems domain round. Scala/Java friendly.",
+        "rounds": "5-6: recruiter -> 2x coding -> system design -> domain/architecture -> hiring manager.",
+        "coding": "Medium-Hard LeetCode. Arrays, graphs, DS problems. Staff may get more practical coding.",
+        "prep_plan": [
+          "3-4 weeks LC: Medium/Hard mix + review Scala syntax if rusty",
+          "Study Spark: execution model, shuffle, partitions, fault tolerance, Catalyst",
+          "Design: distributed job scheduler, real-time pipeline, multi-tenant cluster manager",
+          "Prepare CK Scala + Kafka + Cassandra stories mapped to Runtime/Data teams",
+          "Review Delta Lake basics and lakehouse architecture",
+          "Practice explaining multi-DC payment architecture from MakeMyTrip"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "STAR stories: conflict resolution, ownership, cross-functional feedback",
+          "source": "YouTube / candidate reports",
+          "reported": "2025-11",
+          "url": "https://www.youtube.com/watch?v=Fdd0PjsieWk",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design cheapest-book search service across distributors",
+          "source": "interviewing.io",
+          "reported": "2025-12",
+          "url": "https://interviewing.io/databricks-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design production RAG architecture (GenAI round increasingly common)",
+          "source": "jobsbyculture",
+          "reported": "2026-01",
+          "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design real-time streaming pipeline / data lakehouse ingestion at scale",
+          "source": "jobsbyculture",
+          "reported": "2026-01",
+          "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Largest rectangle in histogram applied to 2D workspace grid",
+          "source": "JobMentis",
+          "reported": "2026-01",
+          "url": "https://www.jobmentis.com/en/interviews/databricks/swe",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "IP address to CIDR range matching",
+          "source": "interviewing.io",
+          "reported": "2025-12",
+          "url": "https://interviewing.io/databricks-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Variable-sized tic-tac-toe game implementation",
+          "source": "interviewing.io",
+          "reported": "2025-12",
+          "url": "https://interviewing.io/databricks-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Concurrency round: implement thread-safe logger or concurrent writers (signature round)",
+          "source": "jobsbyculture / interviewing.io",
+          "reported": "2026-01",
+          "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "stripe": {
+      "name": "Stripe",
+      "color": "#635bff",
+      "resume_slug": "Stripe",
+      "tier": "A-Tier",
+      "focus": "Payments Infrastructure",
+      "location": "San Francisco, CA - ~45 min",
+      "meta": [
+        "$91.5B valuation",
+        "H1B active fintech sponsor",
+        "~500 open roles",
+        "L4 target"
+      ],
+      "comp": [
+        [
+          "$230K",
+          "Base"
+        ],
+        [
+          "$197K",
+          "Stock/yr"
+        ],
+        [
+          "$427K",
+          "Median TC"
+        ],
+        [
+          "$1.08M",
+          "L5 top"
+        ]
+      ],
+      "comp_note": "Push for L4+ or Senior title.",
+      "h1b": "Active fintech sponsor with experienced immigration team.",
+      "highlight": "MakeMyTrip payment revamp is your superpower - lead with it in every Stripe conversation.",
+      "fit": "Myntra 500M carts + MakeMyTrip payment revamp + Wavecrest PCI = rare payments depth.",
+      "pros": [
+        "Best payments domain story",
+        "Strong engineering brand",
+        "SF office",
+        "H1B-friendly fintech sponsor"
+      ],
+      "cons": [
+        "L4 median TC below $500K",
+        "Referral helps significantly",
+        "Extremely high correctness bar"
+      ],
+      "benefits": [
+        "Competitive base + equity (RSU/options)",
+        "401(k) match",
+        "Premium medical/dental/vision",
+        "Catered lunches (SF office)",
+        "Generous parental leave",
+        "Remote-friendly teams (role-dependent)",
+        "$5K+ annual learning stipend",
+        "Wellness reimbursement"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, 2 coding, system design, HM/culture",
+        "System design: payment processing, distributed rate limiter, fraud detection",
+        "Values: correctness and fault tolerance in financial systems"
+      ],
+      "jobs": [
+        {
+          "title": "Software Engineer, Payments",
+          "id": "7529787",
+          "url": "https://stripe.com/jobs/listing/software-engineer-payments/7529787",
+          "fit": "Myntra/Flipkart 500M carts, MakeMyTrip payment revamp, Wavecrest PCI."
+        }
+      ],
+      "profile": "Senior Software Engineer with 17+ years in payments and distributed backend systems. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Kafka",
+        "Cassandra",
+        "PCI DSS",
+        "Payments",
+        "Microservices"
+      ],
+      "target_apps": [
+        {
+          "role": "Software Engineer, Payments",
+          "id": "7529787",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://stripe.com/jobs/listing/software-engineer-payments/7529787"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Private (~$91.5B valuation, 2025). IPO rumors but no date. Late-stage private with strong revenue.",
+        "salary_range": "L4 Bay Area: $380K-$480K TC; L5 $550K-$750K+ (Levels.fyi 2026). Push for Senior/L4+ title.",
+        "growth_note": "Late-stage private. Equity valuable at current valuation; liquidity via secondaries possible.",
+        "perks": [
+          "Competitive base + equity (RSU/options)",
+          "401(k) match",
+          "Premium medical/dental/vision",
+          "Catered lunches (SF office)",
+          "Generous parental leave",
+          "Remote-friendly teams (role-dependent)",
+          "$5K+ annual learning stipend",
+          "Wellness reimbursement"
+        ]
+      },
+      "how_to_crack": {
+        "style": "High correctness bar. 'Move fast, don't break payments.' Practical coding + deep system design.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> HM/culture.",
+        "coding": "Medium LeetCode. Emphasis on clean code, edge cases, and explaining tradeoffs.",
+        "prep_plan": [
+          "2-3 weeks LC Medium + focus on correctness and test cases",
+          "Design: payment processing pipeline, idempotency keys, distributed rate limiter, fraud detection",
+          "Lead every answer with MakeMyTrip payment revamp (multi-DC, 50% latency cut)",
+          "Study PCI basics, idempotency, exactly-once payment semantics",
+          "Prepare Myntra 500M carts / sharding story for scale questions",
+          "Read Stripe engineering blog on reliability"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Ownership example - incident you drove and cross-team disagreement",
+          "source": "Exponent",
+          "reported": "2025-12",
+          "url": "https://www.tryexponent.com/guides/stripe-software-engineer-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design distributed rate limiter for Stripe API (multi-region)",
+          "source": "techinterview.org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design Stripe payment processing with idempotency keys and exactly-once semantics",
+          "source": "techinterview.org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Integration round: build feature using Stripe API docs + GitHub repo",
+          "source": "Exponent",
+          "reported": "2025-12",
+          "url": "https://www.tryexponent.com/guides/stripe-software-engineer-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Bug bash: find race conditions and off-by-one bugs in ~200 lines of payment code",
+          "source": "techinterview.org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Design a rate limiter - N requests per user per minute (sliding window)",
+          "source": "Leetcode Wizard",
+          "reported": "2025-10",
+          "url": "https://leetcodewizard.io/blog/mastering-the-stripe-software-engineer-interview-questions-process-and-expert-tips-for-preparation",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "google": {
+      "name": "Google",
+      "color": "#4285f4",
+      "resume_slug": "Google",
+      "tier": "A-Tier",
+      "focus": "Cloud AI / Payments Infrastructure",
+      "location": "Mountain View, CA - ~40 min",
+      "meta": [
+        "18-yr Glassdoor best place",
+        "#1 H1B volume (1,050+)",
+        "L5 target",
+        "L6 in 18 mo"
+      ],
+      "comp": [
+        [
+          "$225K",
+          "Base"
+        ],
+        [
+          "$200K",
+          "Stock/yr"
+        ],
+        [
+          "$425K",
+          "Median TC L5"
+        ],
+        [
+          "$2.24M",
+          "L9 top"
+        ]
+      ],
+      "comp_note": "Push for L5 not L4. L6 path = $700K-$1.2M.",
+      "h1b": "#1 volume sponsor - 1,050+ FY2025 approvals. Most reliable H1B path.",
+      "highlight": "Cloud AI and Google Pay teams growing despite layoffs elsewhere.",
+      "fit": "17 years distributed systems + Myntra/MMT payments = Cloud Financial Services match.",
+      "pros": [
+        "Most reliable H1B sponsor",
+        "L5/L6 promotion path to $700K+",
+        "Cloud + Pay teams hiring",
+        "18-year Glassdoor best place",
+        "Brand and resume signal"
+      ],
+      "cons": [
+        "Longest process (3-4 months)",
+        "Hardest coding bar",
+        "L5 median below target day-one",
+        "Org uncertainty from layoffs"
+      ],
+      "benefits": [
+        "Free meals at Bay Area campuses (famous perk)",
+        "RSU grants + semi-annual refresh",
+        "401(k) match + mega backdoor Roth options",
+        "ESPP discount",
+        "Excellent medical/dental/vision",
+        "Generous parental leave (18-22 weeks)",
+        "On-site gyms, massages, shuttles (campus-dependent)"
+      ],
+      "interview": [
+        "5-7 rounds: recruiter, phone screen, 4-5 onsite",
+        "Coding: Hard LeetCode - 100+ problems via NeetCode",
+        "System design: global payments, sharding, consistency",
+        "Push for L5 - 17 yrs + MS CS should land L5 not L4"
+      ],
+      "jobs": [
+        {
+          "title": "Software Engineer, Google Cloud Financial Services",
+          "id": "121405674409075398",
+          "url": "https://careers.google.com/jobs/results/121405674409075398/",
+          "fit": "FinTech + cloud: MakeMyTrip payments, Credit Karma platform, GCP, Kafka."
+        }
+      ],
+      "profile": "Senior Software Engineer at intersection of cloud infrastructure and financial systems. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Scala",
+        "Kafka",
+        "GCP",
+        "AWS",
+        "Payments",
+        "Kubernetes"
+      ],
+      "target_apps": [
+        {
+          "role": "Software Engineer, Google Cloud Financial Services",
+          "id": "121405674409075398",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://careers.google.com/jobs/results/121405674409075398/"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NASDAQ: GOOGL). Mega-cap, highly liquid RSUs. Most predictable equity.",
+        "salary_range": "L5 SWE Bay Area: $400K-$500K TC; L6 Staff $700K-$1.2M (Levels.fyi 2026).",
+        "growth_note": "Public RSUs with refresh. L5->L6 promotion is the path to $700K+.",
+        "perks": [
+          "Free meals at Bay Area campuses (famous perk)",
+          "RSU grants + semi-annual refresh",
+          "401(k) match + mega backdoor Roth options",
+          "ESPP discount",
+          "Excellent medical/dental/vision",
+          "Generous parental leave (18-22 weeks)",
+          "On-site gyms, massages, shuttles (campus-dependent)"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Classic Google loop. Hardest LC bar in this list. Googleyness behavioral round.",
+        "rounds": "5-7: recruiter -> phone screen -> 4-5 onsite (coding, system design, Googleyness, team match).",
+        "coding": "Hard LeetCode only. 100+ problems recommended. Graphs, DP, strings are core.",
+        "prep_plan": [
+          "6-8 weeks: NeetCode 150 + 50 extra Hard (start early - longest timeline)",
+          "System design: Google-scale search index, Maps sharding, global payments",
+          "Prep 5 Googleyness STAR stories (humility, collaboration, ambiguity)",
+          "Negotiate level upfront: push L5 with 17 yrs + MS CS",
+          "Target Cloud AI or Google Pay teams specifically",
+          "Use interview warmup on leetcode.com/google top questions"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Googleyness: mentor junior engineers, lead without authority, controversial decision",
+          "source": "gitGood.dev",
+          "reported": "2025-11",
+          "url": "https://gitgood.dev/prep/google-l5-swe",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design Google-scale autocomplete with prefix frequency ranking",
+          "source": "Onsites.fyi",
+          "reported": "2025-10",
+          "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Graph: shortest paths, topological sort, strongly connected components",
+          "source": "Medium L5 reports",
+          "reported": "2025-09",
+          "url": "https://medium.com/@rohitverma_87831/my-interview-experience-at-google-afc1080df175",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Median of data stream (two heaps)",
+          "source": "Onsites.fyi / Medium",
+          "reported": "2025-10",
+          "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "LRU cache O(1) - common Google follow-up chain",
+          "source": "Onsites.fyi",
+          "reported": "2025-10",
+          "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "snowflake": {
+      "name": "Snowflake",
+      "color": "#29b5e8",
+      "resume_slug": "Snowflake",
+      "tier": "A-Tier",
+      "focus": "Data Cloud Platform",
+      "location": "San Mateo, CA - ~30 min",
+      "meta": [
+        "Data cloud leader",
+        "H1B active sponsor",
+        "Stable",
+        "MTS2 target"
+      ],
+      "comp": [
+        [
+          "$220-290K",
+          "Base"
+        ],
+        [
+          "$300-550K",
+          "Stock/yr"
+        ],
+        [
+          "$420-640K",
+          "TC range"
+        ],
+        [
+          "$640K+",
+          "Senior Staff"
+        ]
+      ],
+      "comp_note": "TC range hits $500K target. Tied with ServiceNow for closest commute.",
+      "h1b": "Active sponsor - enterprise-scale immigration support.",
+      "highlight": "30 min commute + Java/Scala platform work + TC in target range.",
+      "fit": "Multi-tenant data cloud needs distributed systems + Java/Scala.",
+      "pros": [
+        "30 min from San Ramon",
+        "TC $420K-$640K hits target",
+        "Java/Scala platform work",
+        "Stable employer"
+      ],
+      "cons": [
+        "Less brand excitement vs AI labs",
+        "Data warehouse domain learning curve",
+        "Deep Java concurrency tests"
+      ],
+      "benefits": [
+        "RSU equity + refresh",
+        "401(k) match",
+        "Free snacks/drinks (San Mateo HQ)",
+        "Medical/dental/vision",
+        "Parental leave",
+        "Hybrid San Mateo office (~30 min from San Ramon)",
+        "Employee stock purchase plan"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, coding (2x), system design, hiring manager",
+        "System design: multi-tenant query engine, distributed metadata store",
+        "Domain: Virtual Warehouses, Cloud Services, Storage architecture"
+      ],
+      "jobs": [
+        {
+          "title": "Senior Software Engineer - Cloud Services",
+          "id": "SNCOUS683A",
+          "url": "https://careers.snowflake.com/us/en",
+          "fit": "Cloud services, Cassandra, Kubernetes, Java/Scala."
+        }
+      ],
+      "profile": "Senior Software Engineer with 17+ years in cloud services and distributed data infrastructure. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Scala",
+        "Cassandra",
+        "Kubernetes",
+        "AWS",
+        "GCP"
+      ],
+      "target_apps": [
+        {
+          "role": "Senior Software Engineer - Cloud Services",
+          "id": "SNCOUS683A",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://careers.snowflake.com/us/en"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NYSE: SNOW). Data cloud leader. RSUs liquid; stock has been volatile.",
+        "salary_range": "MTS2 Senior Bay Area: $420K-$640K TC; Senior Staff $640K+ (Levels.fyi 2026).",
+        "growth_note": "Public company with enterprise moat. RSU refresh supports comp growth.",
+        "perks": [
+          "RSU equity + refresh",
+          "401(k) match",
+          "Free snacks/drinks (San Mateo HQ)",
+          "Medical/dental/vision",
+          "Parental leave",
+          "Hybrid San Mateo office (~30 min from San Ramon)",
+          "Employee stock purchase plan"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Solid enterprise loop. Java concurrency depth. Multi-tenant system design.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> hiring manager.",
+        "coding": "Medium-Hard LeetCode, Java preferred. GC, concurrency, memory model questions common.",
+        "prep_plan": [
+          "3 weeks LC + Java concurrency review (JMM, thread pools, CompletableFuture)",
+          "Design: multi-tenant query engine, metadata store, cloud storage layer",
+          "Read Snowflake architecture blog (Virtual Warehouses, Cloud Services, Storage)",
+          "Prepare distributed systems stories from CK + MakeMyTrip",
+          "Practice explaining CAP tradeoffs in warehouse scheduling context"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Explain engineering trade-offs linking technical design to business metrics",
+          "source": "DEV Community",
+          "reported": "2025-11",
+          "url": "https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design real-time data ingestion pipeline at Snowflake scale",
+          "source": "Refer.me",
+          "reported": "2025-09",
+          "url": "https://www.refer.me/interview/technical-interview-for-snowflake-software-engineer-technical-interview-at-snowflake",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design multi-tenant data warehouse isolating business units without workload interference",
+          "source": "System Design Handbook",
+          "reported": "2025-10",
+          "url": "https://www.systemdesignhandbook.com/guides/snowflake-system-design-interview/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design quota management service with concurrent users, reclamation, and lock contention",
+          "source": "DEV Community",
+          "reported": "2025-11",
+          "url": "https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Check whether any character has been duplicated in a string",
+          "source": "Exponent",
+          "reported": "2026-01",
+          "url": "https://www.tryexponent.com/guides/snowflake-software-engineer-interview",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Tree medium with pruning + greedy max-heap follow-up",
+          "source": "Glassdoor",
+          "reported": "2025-06",
+          "url": "https://www.glassdoor.com/Interview/Snowflake-Software-Engineer-Interview-Questions-EI_IE928471.0,9_KO10,27.htm",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "netflix": {
+      "name": "Netflix",
+      "color": "#e50914",
+      "resume_slug": "Netflix",
+      "tier": "A-Tier",
+      "focus": "Backend / Distributed Systems",
+      "location": "Los Gatos, CA - ~35 min",
+      "meta": [
+        "300M+ subscribers",
+        "H1B active sponsor",
+        "Stable",
+        "L5 target"
+      ],
+      "comp": [
+        [
+          "$300-450K",
+          "All-in base"
+        ],
+        [
+          "Your choice",
+          "Salary vs stock"
+        ],
+        [
+          "$550K",
+          "L5 median"
+        ],
+        [
+          "$619K",
+          "Top L5"
+        ]
+      ],
+      "comp_note": "Unique all-in comp model - choose salary/stock split annually.",
+      "h1b": "Confirmed active sponsor - median H1B salary $226K FY2025.",
+      "highlight": "Finagle framework ownership at CK = Netflix gateway/platform engineering.",
+      "fit": "Scala/Java backend at 10M+ RPS scale. Kafka at 5 companies.",
+      "pros": [
+        "L5 median $550K hits target",
+        "Unique comp flexibility",
+        "Freedom/responsibility culture",
+        "Scala-heavy backend match",
+        "Autonomy for senior engineers"
+      ],
+      "cons": [
+        "High performance bar",
+        "Sink or swim culture",
+        "Los Gatos not SF",
+        "No traditional perf reviews"
+      ],
+      "benefits": [
+        "All-in comp (choose salary vs stock options each year)",
+        "Unlimited PTO (responsible use culture)",
+        "Full medical/dental/vision for you + dependents",
+        "No 401(k) match traditionally - offset by higher cash comp",
+        "Freedom and responsibility culture",
+        "Los Gatos campus with free snacks"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, coding (2x), system design, culture",
+        "System design: streaming CDN, high-throughput event pipeline",
+        "Read Netflix Culture Deck before onsite"
+      ],
+      "jobs": [
+        {
+          "title": "Distributed Systems Engineer 5 - Cloud Gateway",
+          "id": "790315481039",
+          "url": "https://jobs.netflix.com/jobs/790315481039",
+          "fit": "Finagle ownership, Kafka/Cassandra at scale."
+        }
+      ],
+      "profile": "Senior/Staff Distributed Systems Engineer. Owns Finagle-based web framework at Credit Karma. MS CS, ASU 2021.",
+      "tags": [
+        "Scala",
+        "Java",
+        "Finagle",
+        "Kafka",
+        "Cassandra",
+        "Distributed Systems"
+      ],
+      "target_apps": [
+        {
+          "role": "Distributed Systems Engineer 5 - Cloud Gateway",
+          "id": "790315481039",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://jobs.netflix.com/jobs/790315481039"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NASDAQ: NFLX). Streaming giant. Unique all-in comp model.",
+        "salary_range": "L5 Senior Bay Area: $500K-$620K all-in (you choose salary vs stock split annually).",
+        "growth_note": "Public stock. High cash option available. Performance culture - no weak performers.",
+        "perks": [
+          "All-in comp (choose salary vs stock options each year)",
+          "Unlimited PTO (responsible use culture)",
+          "Full medical/dental/vision for you + dependents",
+          "No 401(k) match traditionally - offset by higher cash comp",
+          "Freedom and responsibility culture",
+          "Los Gatos campus with free snacks"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Culture-heavy. Strong system design. Expect failure-mode thinking in distributed systems.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> culture ('freedom and responsibility').",
+        "coding": "Medium-Hard LeetCode, Java/Scala. Interviewers probe edge cases and failure scenarios.",
+        "prep_plan": [
+          "3 weeks LC + read Netflix Culture Deck cover to cover",
+          "Design: CDN cache invalidation, high-throughput event pipeline, global session store",
+          "Prepare Finagle framework ownership story (direct Netflix parallel)",
+          "Practice explaining tradeoffs when things fail at 10M+ RPS",
+          "Show learning agility across Scala, Java, Kotlin, TypeScript",
+          "Be ready for 'tell me about a time you made a bold decision' stories"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Culture memo alignment - freedom and responsibility, high performance bar",
+          "source": "Blind",
+          "reported": "2025-08",
+          "url": "https://www.teamblind.com/post/netflix-l4-full-stack-engineer-interview-prep-0cdqwyl4",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Open Connect CDN - multi-region failover and traffic routing",
+          "source": "Prepfully",
+          "reported": "2025-10",
+          "url": "https://prepfully.com/interview-guides/netflix-software-engineer",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design log/video playback pipeline at Netflix scale (multi-region, fault tolerance)",
+          "source": "programhelp.net",
+          "reported": "2025-11",
+          "url": "https://programhelp.net/en/vo/netflix-software-engineer-interview-guide-top-questions-tips/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "OOD: design a class from one-liner spec - clarify requirements first",
+          "source": "Blind",
+          "reported": "2025-08",
+          "url": "https://www.teamblind.com/post/netflix-interview-prep-2025-oi6mk43k",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "LC 901 Online Stock Span variant - sliding window / monotonic stack",
+          "source": "programhelp.net",
+          "reported": "2025-11",
+          "url": "https://programhelp.net/en/vo/netflix-software-engineer-interview-guide-top-questions-tips/",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "uber": {
+      "name": "Uber",
+      "color": "#000000",
+      "resume_slug": "Uber",
+      "tier": "A-Tier",
+      "focus": "Java Platform / Payments",
+      "location": "San Francisco, CA - ~45 min",
+      "meta": [
+        "Global mobility platform",
+        "H1B active sponsor",
+        "Stable post-2020",
+        "Senior Staff target"
+      ],
+      "comp": [
+        [
+          "$198-224K",
+          "Base"
+        ],
+        [
+          "~$150K",
+          "Stock/yr est"
+        ],
+        [
+          "$350-375K",
+          "TC est"
+        ],
+        [
+          "$500K+",
+          "Senior Staff"
+        ]
+      ],
+      "comp_note": "Push for Senior Staff to hit $500K+.",
+      "h1b": "Large company, established process - confirm at recruiter screen.",
+      "highlight": "Java Platform team = structurally identical to Credit Karma Portals Framework role.",
+      "fit": "Builds core Java microservices framework all Uber engineering teams run on.",
+      "pros": [
+        "Java Platform role is exact CK parallel",
+        "SF office",
+        "Payments teams value MMT/Myntra",
+        "Good leverage for negotiations elsewhere"
+      ],
+      "cons": [
+        "Senior TC likely below $500K target",
+        "Must push for Senior Staff",
+        "Lower base than peers"
+      ],
+      "benefits": [
+        "RSU equity + refresh",
+        "401(k) match",
+        "Uber credits / mobility perks",
+        "Medical/dental/vision",
+        "Free lunch (SF office, team-dependent)",
+        "Hybrid SF office",
+        "Parental leave"
+      ],
+      "interview": [
+        "4-5 rounds: recruiter, coding (2x), system design, HM/bar raiser",
+        "System design: surge pricing, distributed rate limiter, real-time dispatch",
+        "Push for Senior or Senior Staff - do not accept SWE II"
+      ],
+      "jobs": [
+        {
+          "title": "Staff Software Engineer (Backend) - Java Platform",
+          "id": "156244",
+          "url": "https://www.uber.com/global/en/careers/list/156244/",
+          "fit": "Finagle platform ownership, 17+ years Java."
+        }
+      ],
+      "profile": "Staff Backend Software Engineer with deep Java platform expertise. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "Platform Engineering",
+        "Finagle"
+      ],
+      "target_apps": [
+        {
+          "role": "Staff Software Engineer (Backend) - Java Platform",
+          "id": "156244",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://www.uber.com/global/en/careers/list/156244/"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Public (NYSE: UBER). Profitable mobility platform. Liquid RSUs.",
+        "salary_range": "Senior SWE Bay Area: $350K-$400K TC; Senior Staff $500K-$600K+ (Levels.fyi 2026).",
+        "growth_note": "Public, stable post-restructuring. Push Senior Staff for $500K+ target.",
+        "perks": [
+          "RSU equity + refresh",
+          "401(k) match",
+          "Uber credits / mobility perks",
+          "Medical/dental/vision",
+          "Free lunch (SF office, team-dependent)",
+          "Hybrid SF office",
+          "Parental leave"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Standard big-tech loop with bar raiser. Real-time systems flavor in design.",
+        "rounds": "4-5: recruiter -> 2x coding -> system design -> HM/bar raiser.",
+        "coding": "Medium LeetCode, Java/Go. Distributed failure scenarios emphasized.",
+        "prep_plan": [
+          "2-3 weeks LC Medium",
+          "Design: surge pricing engine, dispatch matching, distributed rate limiter",
+          "Lead with Java Platform parallel to CK Portals Framework",
+          "Prepare Myntra/MMT payments stories for fares/payments teams",
+          "Negotiate level: refuse SWE II, target Senior Staff",
+          "Practice explaining on-call/incident response at scale"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "Behavioral",
+          "question": "Deep dive on production failure you owned and cross-team disagreement",
+          "source": "devbrainiac",
+          "reported": "2025-10",
+          "url": "https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design real-time stock price notification system",
+          "source": "devbrainiac",
+          "reported": "2025-10",
+          "url": "https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design Splitwise - minimize transactions, handle concurrent expense entries",
+          "source": "interviewexperiences.in",
+          "reported": "2025-11",
+          "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design real-time driver dispatch - match riders to nearest driver in 1-2 seconds",
+          "source": "Tech Interview Dot Org",
+          "reported": "2026-01",
+          "url": "https://www.techinterview.org/post/3233460273/uber-interview-guide-2026-dispatch-systems-geospatial-algorithms-and-marketplace-engineering/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Implement Linux filesystem commands: mkdir, cd, ls, pwd (N-ary tree)",
+          "source": "interviewexperiences.in",
+          "reported": "2025-11",
+          "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Minimax game - two players pick only corner values each turn",
+          "source": "interviewexperiences.in",
+          "reported": "2025-11",
+          "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Optimal Binary Search Tree variation (DP on trees)",
+          "source": "interviewexperiences.in",
+          "reported": "2025-11",
+          "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+          "added": "2026-06-09"
+        }
+      ]
+    },
+    "spacex": {
+      "name": "SpaceX",
+      "color": "#005288",
+      "resume_slug": "Spacex",
+      "tier": "Mission-driven",
+      "focus": "Backend / Distributed Systems (Starlink)",
+      "location": "Hawthorne CA / Redmond WA / remote",
+      "meta": [
+        "Starlink ground software",
+        "Long hours culture",
+        "Mission-first engineering"
+      ],
+      "comp": [
+        [
+          "$180-260K",
+          "Base"
+        ],
+        [
+          "Stock",
+          "SpaceX equity"
+        ],
+        [
+          "-",
+          "TC varies"
+        ],
+        [
+          "-",
+          "Pre-IPO upside"
+        ]
+      ],
+      "comp_note": "Lower base than Bay Area tech; equity in private SpaceX.",
+      "h1b": "Confirm sponsorship - mission-critical roles may have flexibility.",
+      "highlight": "Kafka/Cassandra at scale, multi-DC architecture applicable to Starlink ground software.",
+      "fit": "High-reliability distributed backend for Starlink infrastructure.",
+      "pros": [
+        "Unique mission impact",
+        "Deep distributed systems engineering",
+        "Pre-IPO equity upside",
+        "Engineering-first culture"
+      ],
+      "cons": [
+        "Base comp well below target",
+        "Long hours reported",
+        "Hawthorne commute if not remote",
+        "H1B less established"
+      ],
+      "benefits": [
+        "SpaceX stock (private, illiquid)",
+        "Medical/dental/vision",
+        "401(k) (verify match at offer)",
+        "On-site rocket factory / mission exposure",
+        "No free lunch culture like Google - mission is the perk",
+        "Long hours expected (60+ hr weeks reported)"
+      ],
+      "interview": [
+        "Recruiter screen (30 min)",
+        "Technical phone screen (1hr): DS&A, system design",
+        "Onsite loop (4-5 hrs): coding, distributed systems design, HM/mission",
+        "Lead with MakeMyTrip multi-DC architecture"
+      ],
+      "jobs": [
+        {
+          "title": "Sr. Software Engineer - Backend / Distributed Systems (Starlink)",
+          "id": "8300183002",
+          "url": "https://job-boards.greenhouse.io/spacex/jobs/8300183002",
+          "fit": "Kafka/Cassandra, multi-datacenter for Starlink."
+        }
+      ],
+      "profile": "Staff Software Engineer with 17+ years building distributed backend systems at scale. MS CS, ASU 2021.",
+      "tags": [
+        "Java",
+        "Python",
+        "Kafka",
+        "Cassandra",
+        "Kubernetes",
+        "Distributed Systems"
+      ],
+      "target_apps": [
+        {
+          "role": "Sr. SWE - Backend / Distributed Systems (Starlink)",
+          "id": "8300183002",
+          "status": "Not started",
+          "date": "-",
+          "url": "https://job-boards.greenhouse.io/spacex/jobs/8300183002"
+        }
+      ],
+      "snapshot": {
+        "company_type": "Private (SpaceX). Starlink driving revenue. Pre-IPO; long-hours culture. Mission-driven.",
+        "salary_range": "Sr SWE: $180K-$260K base + SpaceX stock. TC below Bay Area tech norms.",
+        "growth_note": "Pre-IPO equity in SpaceX. Potential massive upside but illiquid for years.",
+        "perks": [
+          "SpaceX stock (private, illiquid)",
+          "Medical/dental/vision",
+          "401(k) (verify match at offer)",
+          "On-site rocket factory / mission exposure",
+          "No free lunch culture like Google - mission is the perk",
+          "Long hours expected (60+ hr weeks reported)"
+        ]
+      },
+      "how_to_crack": {
+        "style": "Rigorous, mission-aligned. Deep distributed systems. Less LC grind, more engineering depth.",
+        "rounds": "Recruiter (30m) -> phone screen (1hr DS&A) -> onsite loop (4-5 hrs coding + DS design + HM).",
+        "coding": "LeetCode Medium/Hard but interviewers care about systems thinking and reliability.",
+        "prep_plan": [
+          "2-3 weeks LC Medium/Hard + distributed systems review",
+          "Design: multi-DC failover, high-availability ground station software, event pipeline",
+          "Lead with MakeMyTrip multi-DC + CK high-availability ownership",
+          "Prepare mission commitment talking points (why SpaceX, why Starlink)",
+          "Study Kafka/Cassandra ops at scale - Starlink ground software uses similar patterns",
+          "Be honest about hours expectations in HM round"
+        ]
+      },
+      "latest_questions": [
+        {
+          "type": "System Design",
+          "question": "Design fault-tolerant rocket guidance handling sensor failures (TMR, watchdog timers)",
+          "source": "engineerknow / Tech Interview Dot Org",
+          "reported": "2025-12",
+          "url": "https://www.engineerknow.com/2026/04/30-popular-spacex-engineering-technical.html",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Design telemetry data pipeline for a rocket launch (compression, failure handling)",
+          "source": "System Design Handbook",
+          "reported": "2025-10",
+          "url": "https://www.systemdesignhandbook.com/guides/spacex-system-design-interview/",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Real-time scheduler for concurrent spacecraft telemetry streams",
+          "source": "cleverprep",
+          "reported": "2025-11",
+          "url": "https://www.cleverprep.com/companies/spacex/software-engineer",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Hybrid algorithm + design: multi-location inventory management with transfers at scale",
+          "source": "interviewing.io",
+          "reported": "2025-10",
+          "url": "https://interviewing.io/spacex-interview-questions",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Behavioral",
+          "question": "Mission commitment and long hours expectations - honest HM conversation",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "System Design",
+          "question": "Multi-datacenter failover and high-availability ground software",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        },
+        {
+          "type": "Coding",
+          "question": "Medium/hard DS&A with emphasis on correctness under constraints",
+          "source": "Handoff prep",
+          "reported": "2025-10",
+          "url": "",
+          "added": "2026-06-09"
+        }
+      ]
+    }
+  },
+  "applications": {
+    "databricks": [
+      {
+        "role": "Staff SWE - Distributed Data Systems",
+        "id": "6937001002",
+        "status": "Submitted",
+        "date": "2026-06-04",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002"
+      },
+      {
+        "role": "Staff SWE - Distributed Data Systems",
+        "id": "5646855002",
+        "status": "Submitted",
+        "date": "2026-06-04",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002"
+      },
+      {
+        "role": "Sr. Staff SWE - Data Platform",
+        "id": "7823561002",
+        "status": "Submitted",
+        "date": "2026-06-04",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002"
+      },
+      {
+        "role": "Staff SWE - Backend",
+        "id": "5408888002",
+        "status": "Submitted",
+        "date": "2026-06-04",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002"
+      },
+      {
+        "role": "Staff SWE - Database Engine Internals",
+        "id": "5646866002",
+        "status": "In progress",
+        "date": "2026-06-05",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002"
+      },
+      {
+        "role": "Staff SWE - IAM",
+        "id": "7994801002",
+        "status": "Pending",
+        "date": "-",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002"
+      },
+      {
+        "role": "Senior Staff SWE - Security Infrastructure",
+        "id": "7274908002",
+        "status": "Pending",
+        "date": "-",
+        "url": "https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002"
+      }
+    ]
+  }
+}

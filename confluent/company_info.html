@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confluent — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#172B4D;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#172B4D}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .fit-med{background:#FAEEDA;color:#633806}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#E6EBF5;color:#172B4D}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #172B4D;color:#172B4D;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#E6EBF5}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#172B4D;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#E6EBF5;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#172B4D}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+  .kafka-badge{background:#EAF3DE;border-left:3px solid #2a9d6e;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#27500A;margin-bottom:1rem}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">Confluent</span>
+</div>
+<div class="hero">
+  <h1>Confluent</h1>
+  <p>A-Tier · Kafka / Streaming Platform Engineering · Mountain View, CA · 40 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>📡 The company behind Apache Kafka</span>
+    <span>🛂 H1B active sponsor</span>
+    <span>✅ No major layoffs</span>
+    <span>L5 target level</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Senior Software Engineer L5 (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$220K</div><div class="lbl">Base (L5)</div></div>
+    <div class="comp-card"><div class="num">$297K</div><div class="lbl">Stock / yr (avg)</div></div>
+    <div class="comp-card"><div class="num">$517K</div><div class="lbl">Median TC (L5)</div></div>
+    <div class="comp-card"><div class="num">$733K</div><div class="lbl">L6a top reported</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Levels.fyi + Blind, May 2026. L5 TC median $517K already hits your $500K target. L6 promotion within 18 months = $733K path.</p>
+
+  <div class="kafka-badge">
+    🟢 <strong>Hidden gem pick:</strong> You have used Kafka at MakeMyTrip, Wenova, Pearson, Nordstrom, and CreditKarma — 5 separate companies across your career. This is almost unmatched Kafka breadth for a Confluent application. The company behind Kafka is hiring Kafka engineers — and you are one.
+  </div>
+
+  <h2>Why you're a near-perfect match</h2>
+  <div class="info-box">
+    Confluent builds and operates Apache Kafka at cloud scale. You've used Kafka in production across 5 different companies for 8+ years: event-driven payment retry logic (MakeMyTrip), customer data hub integration (Wenova), cross-cutting platform observability (Pearson), microservices migration change logs (Nordstrom), and distributed framework engineering (CreditKarma). Very few candidates can claim Kafka depth across that many different domains and architectures.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Public (NASDAQ: CFLT). Kafka company. Stock volatile but liquid RSUs.</li>
+    <li><strong>Salary range (Bay Area):</strong> L5 Senior Bay Area: $480K-$580K TC median; L6 Staff $650K-$733K+ (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Public with strong streaming/data tailwind. RSU refresh helps total comp.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>RSU equity + refresh grants</li><li>401(k) match</li><li>Free lunch/snacks (Mountain View office)</li><li>Medical/dental/vision</li><li>Parental leave</li><li>Kafka Summit / training access</li><li>Hybrid-friendly</li></ul>
+
+    <h2 id="how-to-crack">How to crack Confluent</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Strong domain round on Kafka. Coding is solid but not Google-hard.</li>
+      <li><strong>Rounds:</strong> 4-5: recruiter -&gt; 2x coding -&gt; system design -&gt; Kafka domain/culture.</li>
+      <li><strong>Coding:</strong> Medium LeetCode, Java preferred. Correctness and clarity over speed.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>2 weeks LC Medium + review Kafka internals deeply</li><li>Study: consumer groups, rebalancing, exactly-once, compaction, ISR, replication</li><li>Design: multi-tenant Kafka cluster, event streaming platform, CDC pipeline</li><li>Prepare 'Kafka at 5 companies' narrative with specific failure stories</li><li>Read Confluent blog on cloud control plane architecture</li><li>Mock domain round: explain a production Kafka incident you resolved</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">LeetCode Discuss | 2024-12</span></div><div class="q-text">Design URL shortener with streaming analytics hook <a href="https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">LeetCode Discuss | 2024-12</span></div><div class="q-text">LFU cache with thread-safety follow-up <a href="https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Glassdoor / jointaro | 2025-11</span></div><div class="q-text">Implement LRU cache with TTL expiration <a href="https://www.jointaro.com/interviews/companies/confluent/work-experiences/software-engineer-bengaluru-november-7-2025-4-09fb2dd5/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Glassdoor / LeetCode Discuss | 2024-12</span></div><div class="q-text">Validate Sudoku board and extend to Sudoku solver <a href="https://www.glassdoor.com/Interview/Confluent-Software-Engineer-Interview-Questions-EI_IE1048428.0,9_KO10,27.htm" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">LeetCode Discuss / CodingKaro | 2024-12</span></div><div class="q-text">Word and phrase search across a list of documents <a href="https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Handoff prep | 2025-10</span></div><div class="q-text">Deep Kafka domain: compaction, ISR, partition rebalancing under failure</div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Handoff prep | 2025-10</span></div><div class="q-text">Design event streaming platform - consumer groups, exactly-once semantics</div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Handoff prep | 2025-10</span></div><div class="q-text">Design multi-tenant Kafka cluster with isolation and rebalancing</div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Confluent prep | 2025-10</span></div><div class="q-text">Medium Java - correctness over speed, clean communication</div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Best Kafka depth story</li><li>L5 median hits TC target</li><li>Work with Kafka experts</li><li>Strong equity upside</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Narrower domain (streaming only)</li><li>Mountain View commute</li><li>Deep Kafka domain round</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at Confluent</h2>
+  <ul class="prep-list">
+    <li>4–5 rounds: recruiter screen → coding (2x) → system design → Kafka domain / culture</li>
+    <li>Coding: Medium LeetCode, Java preferred. They care about correctness and clean code more than speed.</li>
+    <li>System design: Design a message queue at scale, a distributed event streaming platform, or a multi-tenant Kafka cluster manager. These are directly in their domain — prep them.</li>
+    <li>Kafka domain round: Know Kafka internals — consumer groups, partition rebalancing, exactly-once semantics, compaction, replication factor. Review this seriously before interviewing.</li>
+    <li>Your story: "I've used Kafka in production at 5 different companies across fintech, ecommerce, edtech, and platform engineering." Open with that. It's rare and they'll know it.</li>
+    <li>H1B: Active sponsor. Verified via migratemate.co. Confirm at recruiter screen.</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Senior Software Engineer - Apache Kafka</td><td><code>15812054</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs/15812054-senior-software-engineer-apache-kafka" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.confluent.io/jobs" target="_blank" class="apply-btn" style="margin-top:.5rem">Open Confluent careers portal ↗</a>
+</main>
+</body>
+</html>

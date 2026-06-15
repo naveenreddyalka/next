@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Reddy Alka - Anthropic</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; }
+  .topnav { background: #1a3a5c; padding: 10px 24px; font-size: 13px; }
+  .topnav a { color: #aac4e0; text-decoration: none; margin-right: 16px; }
+  .topnav a:hover { color: white; }
+  header { background: #c85f31; color: white; padding: 32px 40px; }
+  header h1 { font-size: 28px; font-weight: 700; }
+  header p { margin-top: 6px; opacity: 0.85; font-size: 14px; }
+  .tabs { display: flex; gap: 0; background: white; border-bottom: 2px solid #e8eaf0; padding: 0 24px; max-width: 900px; margin: 0 auto; }
+  .tab-btn { background: none; border: none; padding: 14px 20px; font-size: 13px; font-weight: 600; color: #666; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+  .tab-btn:hover { color: #c85f31; }
+  .tab-btn.active { color: #c85f31; border-bottom-color: #c85f31; }
+  .container { max-width: 900px; margin: 32px auto 48px; padding: 0 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+  .card h2 { font-size: 16px; font-weight: 700; color: #c85f31; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 2px solid #c85f31; padding-bottom: 8px; }
+  .job-row { border: 1px solid #e8eaf0; border-radius: 8px; padding: 18px; margin-bottom: 14px; }
+  .job-title { font-size: 15px; font-weight: 600; }
+  .job-id { font-size: 12px; color: #888; margin-top: 3px; }
+  .job-fit { font-size: 13px; color: #444; margin-top: 10px; line-height: 1.6; }
+  .apply-btn { display: inline-block; margin-top: 12px; padding: 8px 18px; background: #c85f31; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .research-btn { display: inline-block; margin-top: 12px; padding: 10px 20px; background: #1a3a5c; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .resume-link { display: inline-block; margin: 4px 8px 4px 0; padding: 8px 18px; background: #1a3a5c; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .pitch { font-size: 14px; line-height: 1.7; color: #333; }
+  .tag { display: inline-block; padding: 3px 10px; background: #f0f2f7; border-radius: 20px; font-size: 12px; color: #555; margin: 3px 3px 3px 0; }
+  .research-card p { font-size: 13px; color: #555; line-height: 1.6; }
+  .app-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .app-table th { text-align: left; padding: 10px 12px; background: #f8f9fc; border-bottom: 2px solid #e8eaf0; font-size: 11px; text-transform: uppercase; color: #666; }
+  .app-table td { padding: 10px 12px; border-bottom: 1px solid #f0f2f7; vertical-align: top; }
+  .table-wrap { overflow-x: auto; }
+  .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .status-submitted { background: #eaf3de; color: #27500a; }
+  .status-progress { background: #fff3cd; color: #856404; }
+  .status-pending { background: #e8eaf0; color: #555; }
+  .status-none { background: #f0f2f7; color: #888; }
+  .apps-summary { font-size: 13px; color: #666; margin-bottom: 12px; }
+  .muted { font-size: 13px; color: #888; }
+  .link-sm { font-size: 12px; color: #c85f31; text-decoration: none; font-weight: 600; }
+  .link-sm:hover { text-decoration: underline; }
+  .detail-list { padding-left: 18px; margin: 10px 0 16px; }
+  .detail-list li { font-size: 13px; line-height: 1.65; color: #444; margin-bottom: 6px; }
+  .growth-note { font-size: 13px; color: #633806; background: #fff8ed; padding: 10px 14px; border-radius: 6px; margin: 8px 0 14px; line-height: 1.55; }
+  .prep-label { font-size: 13px; color: #333; margin: 14px 0 6px; }
+  .card h3 { font-size: 13px; font-weight: 700; color: #c85f31; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: .04em; }
+  .q-item { border: 1px solid #e8eaf0; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .q-type { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .type-coding { background: #e8f0fe; color: #1a56ce; }
+  .type-design { background: #fce8e8; color: #7a0009; }
+  .type-behavioral { background: #eaf3de; color: #27500a; }
+  .type-other { background: #f0f2f7; color: #555; }
+  .q-meta { font-size: 11px; color: #888; }
+  .q-text { font-size: 13px; line-height: 1.6; color: #333; }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="../index.html">&larr; Home</a>
+  <a href="company_info.html">Company Research</a>
+</nav>
+<header>
+  <h1>Naveen Reddy Alka &rarr; Anthropic</h1>
+  <p>naveenreddy.alka@gmail.com &nbsp;&middot;&nbsp; 314-498-5314 &nbsp;&middot;&nbsp; linkedin.com/in/naveenreddyalka &nbsp;&middot;&nbsp; San Francisco Bay Area</p>
+</header>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('apply', this)">Apply</button>
+  <button class="tab-btn" onclick="showTab('applications', this)">My Applications</button>
+  <button class="tab-btn" onclick="showTab('questions', this)">Latest Questions</button>
+</div>
+<div class="container">
+  <div id="tab-apply" class="tab-panel active">
+    
+    <div class="card research-card">
+      <h2>Company Research</h2>
+      <p>Compensation, interview process, pros/cons, benefits, and open roles are on the dedicated research page.</p>
+      <a class="research-btn" href="company_info.html">Open Anthropic Research Page</a>
+    </div>
+    <div class="card"><h2>Target Roles at Anthropic</h2><div class="job-row"><div class="job-title">Staff Software Engineer, Platform</div><div class="job-id">Job ID: 5157847008</div><div class="job-fit">Platform framework ownership, TypeScript/Scala/Node.js, data contracts, distributed systems.</div><a class="apply-btn" href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank">Apply Now</a></div></div>
+    <div class="card"><h2>Why Anthropic</h2>
+      <p class="pitch">Staff-level Software Engineer with 17+ years building platform infrastructure and distributed backend systems. At Credit Karma, designed and own the Portal Provider framework relied on by 90%+ of portals clients. MS CS, ASU 2021.</p>
+      
+    <h3>Company snapshot</h3>
+    <ul class="detail-list">
+      <li><strong>Company type:</strong> Private (venture-backed). Last valued ~$60B+ (2025). No IPO announced; high growth potential if AI market holds.</li>
+      <li><strong>Salary range (Bay Area):</strong> Senior SWE Bay Area: $450K-$650K TC typical; Staff/Lead $700K-$890K+ (Levels.fyi 2026).</li>
+    </ul>
+    <p class="growth-note">Fastest-growing frontier AI lab after OpenAI. Equity upside if IPO or secondary liquidity events.</p>
+    <h3>Benefits and perks</h3>
+    <ul class="detail-list"><li>Premium medical/dental/vision</li><li>401(k) with company match</li><li>Catered lunches and snacks (SF office)</li><li>Generous equity grants (4-year vest, 25%/yr)</li><li>16+ weeks parental leave</li><li>Learning stipend / conference budget</li><li>Hybrid/in-office SF with flexible arrangements (team-dependent)</li></ul>
+      
+    <h3>How to crack Anthropic</h3>
+    <ul class="detail-list">
+      <li><strong>Interview style:</strong> Structured loop, high bar. Mix of hard coding, infra/system design, and values alignment.</li>
+      <li><strong>Rounds:</strong> 5-6: recruiter screen -&gt; 2x coding -&gt; system design -&gt; infra/platform design -&gt; values/culture.</li>
+      <li><strong>Coding:</strong> Heavy LeetCode (Hard). Also distributed-systems flavored problems. Less pure puzzle, more real-world constraints at Staff level.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="detail-list"><li>4-6 weeks LeetCode: NeetCode 150 + 30 Hard (graphs, DP, concurrency)</li><li>Prep 3 system designs: deployment pipeline, service mesh, observability platform</li><li>Prep 2 infra designs: service registry, multi-tenant auth at scale</li><li>Read Anthropic core views + Responsible Scaling Policy</li><li>Practice Finagle EOL + 100% uptime modernization story (5 min + deep dive)</li><li>Mock 1 values round: AI safety, long-term impact, intellectual humility</li></ul>
+      <p class="muted" style="margin-top:12px;"><a href="company_info.html" class="link-sm">Full company research page</a></p></div>
+    <div class="card"><h2>Resume</h2>
+      <p style="font-size:13px;color:#555;margin-bottom:12px;">Tailored resume for Anthropic.</p>
+      <a class="resume-link" href="Naveen_Reddy_Alka_Anthropic_Resume.pdf">Tailored Resume</a>
+      <a class="resume-link" href="../Naveen_Reddy_Alka_Resume.pdf" style="background:#555;">Generic Resume</a>
+    </div>
+    <div class="card"><h2>Key Skills Match</h2><span class="tag">Scala</span> <span class="tag">TypeScript</span> <span class="tag">Java</span> <span class="tag">Kafka</span> <span class="tag">Kubernetes</span> <span class="tag">Platform Engineering</span> <span class="tag">Finagle</span></div>
+  </div>
+  <div id="tab-applications" class="tab-panel">
+    <div class="card">
+      <h2>Applications - Anthropic</h2>
+      <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div class="table-wrap"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Staff Software Engineer, Platform</td><td><code>5157847008</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank" class="link-sm">View</a></td></tr></tbody></table></div>
+      
+    </div>
+  </div>
+  <div id="tab-questions" class="tab-panel">
+    <div class="card">
+      <h2>Latest Questions - Anthropic</h2>
+      <p class="muted" style="margin-bottom:14px;">Recent coding, system design, and behavioral questions from Blind, LeetCode, Glassdoor, Reddit, and interview reports. Newest first; refreshed weekly.</p>
+      <div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Describe a technical misjudgment that delayed a project - what did you learn? <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Tell me about a safety-first technical decision you made on a project <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Exponent | 2026-03</span></div><div class="q-text">Design inference batching on a single GPU maximizing utilization under synchronous user waits <a href="https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Medium | 2025-09</span></div><div class="q-text">Design distributed search for 1B documents at 1M QPS with sharding and LLM inference scaling <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Exponent | 2025-08</span></div><div class="q-text">Design a batch inferencing API over GPU clusters (scheduling, cold start, model caching) <a href="https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-9bfb57" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Exponent | 2025-10</span></div><div class="q-text">Implement LRU cache with serialization and evolving constraints <a href="https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">Build a multi-threaded web crawler with deduplication and rate limiting <a href="https://interviewing.io/anthropic-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Medium / Exponent | 2025-09</span></div><div class="q-text">Implement an in-memory database with SET/GET/DELETE, then add TTL, filtered scans, and file compression levels <a href="https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99" target="_blank" class="link-sm">source</a></div></div>
+    </div>
+  </div>
+</div>
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

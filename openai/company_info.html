@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#10a37f;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#10a37f}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .fit-med{background:#FAEEDA;color:#633806}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#d4f1e9;color:#0a6b52}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #10a37f;color:#10a37f;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#d4f1e9}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#10a37f;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#d4f1e9;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#0a6b52}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">OpenAI</span>
+</div>
+<div class="hero">
+  <h1>OpenAI</h1>
+  <p>S-Tier · Platform / Backend Infrastructure · San Francisco, CA · 45 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>🤖 ChatGPT / GPT-4o / o3 — frontier AI</span>
+    <span>🛂 H1B confirmed sponsor</span>
+    <span>✅ Actively growing — no layoffs</span>
+    <span>Senior / Staff target level</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Senior / Staff Software Engineer (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$300K</div><div class="lbl">Base (Senior/Staff)</div></div>
+    <div class="comp-card"><div class="num">$500K</div><div class="lbl">PPU equity / yr (avg)</div></div>
+    <div class="comp-card"><div class="num">$800K</div><div class="lbl">Typical Senior TC</div></div>
+    <div class="comp-card"><div class="num">$1.28M</div><div class="lbl">Top reported TC</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Levels.fyi + jobsbyculture.com, 2026. Equity = PPUs (Profit Participation Units), not RSUs. Vest 25%/yr over 4 years, no cliff. Can be liquidated in tender offers. Base: $249K–$300K typical for Senior. Staff higher.</p>
+
+  <div class="highlight-box">
+    ⚡ OpenAI is the highest-TC opportunity in this entire list — above even Anthropic at the Senior level. $800K+ typical for Senior engineers. The equity is PPUs tied to OpenAI's profitability, which has been growing rapidly. This is your best shot at $800K+ without needing a promotion. Apply here in parallel with Anthropic.
+  </div>
+
+  <h2>Why you're a strong match</h2>
+  <div class="info-box">
+    OpenAI's backend and platform teams build the services, data systems, APIs, and infrastructure that bring AI capabilities into production — exactly the kind of platform multiplier work you do at CreditKarma. They need engineers who've operated cross-team shared frameworks at scale, managed distributed systems under SLAs, and can own infrastructure that all product teams depend on. Your Finagle framework + Kafka + Kubernetes + distributed systems background maps directly. They require 7+ yrs experience — you have 17.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Private (capped-profit structure). Massive revenue growth from ChatGPT/API. IPO timing unclear; PPUs tied to profitability.</li>
+    <li><strong>Salary range (Bay Area):</strong> Senior/Staff Bay Area: $700K-$900K+ TC typical; top reports $1.28M (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Category leader in generative AI. PPU equity can appreciate rapidly with revenue growth.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>Top-tier compensation (base + PPUs)</li><li>Full medical/dental/vision + mental health</li><li>401(k) match</li><li>Catered meals (SF campus)</li><li>Equity via Profit Participation Units (PPUs)</li><li>Parental leave and fertility benefits</li><li>Hybrid SF office</li></ul>
+
+    <h2 id="how-to-crack">How to crack OpenAI</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Similar to Anthropic: rigorous, mission-aware, infra-heavy for platform roles.</li>
+      <li><strong>Rounds:</strong> 5-6: recruiter -&gt; 2x coding -&gt; system design -&gt; infra design -&gt; mission/values.</li>
+      <li><strong>Coding:</strong> Hard LeetCode + concurrency/distributed systems. Expect follow-ups on production tradeoffs.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>LeetCode Hard daily (6 weeks): focus concurrency, thread pools, rate limiters</li><li>Design: API gateway at 100K RPS, distributed job scheduler, canary deploy system</li><li>Read OpenAI mission charter and preparedness framework</li><li>Prepare 3 STAR stories on platform ownership under SLA pressure</li><li>Practice explaining Finagle migration without downtime</li><li>Study circuit breakers, backpressure, idempotency for API platform round</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">Exponent | 2025-08</span></div><div class="q-text">Technical project deep dive - what did YOU own vs the team? <a href="https://www.tryexponent.com/experiences/openai-senior-software-engineer-interview-60a1ae" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">Design model-serving platform with request batching, queuing, and GPU utilization <a href="https://interviewing.io/openai-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Exponent | 2025-10</span></div><div class="q-text">Design ChatGPT-scale chat service - press on 100x/1000x load growth <a href="https://www.tryexponent.com/guides/openai-software-engineer-interview" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">IGotAnOffer | 2025-11</span></div><div class="q-text">Implement Unix cd command with symlink resolution and cycle detection <a href="https://igotanoffer.com/en/advice/openai-coding-interview" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">IGotAnOffer | 2025-11</span></div><div class="q-text">Build a multithreaded web crawler with URL deduplication and failure handling <a href="https://igotanoffer.com/en/advice/openai-coding-interview" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">IGotAnOffer | 2025-11</span></div><div class="q-text">Implement a time-based key-value store with get/set and expiry <a href="https://igotanoffer.com/en/advice/openai-coding-interview" target="_blank" class="link-sm">source</a></div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Highest typical TC (~$800K Senior)</li><li>Platform work maps to your background</li><li>Rapid growth and equity upside</li><li>H1B confirmed sponsor</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Intense competition for platform roles</li><li>Mission alignment expected</li><li>PPU value tied to profitability</li><li>Hard LeetCode + distributed systems rounds</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at OpenAI</h2>
+  <ul class="prep-list">
+    <li>5–6 rounds: recruiter → coding (2x) → system design → infrastructure design → values / mission</li>
+    <li>Coding: Hard LeetCode. Similar bar to Anthropic — start grinding now. Distributed systems and concurrency problems common.</li>
+    <li>System design: Design a scalable API gateway, a distributed job scheduler, or a container orchestration system. Emphasize reliability, fault tolerance, and multi-tenancy.</li>
+    <li>Infrastructure design: "How would you build a service that handles 100K RPS with 99.99% uptime?" — think circuit breakers, rate limiting, health checks, observability.</li>
+    <li>Mission alignment: OpenAI takes AI safety seriously. Read their mission statement. Be genuine about why you want to work on AI infrastructure.</li>
+    <li>Key story: Managing Finagle (EOL Twitter framework) — keeping 100% uptime while modernizing = massive credibility signal for "can own hard infra problems."</li>
+    <li>H1B: Confirmed sponsor. Verify process at recruiter screen. Only communicate via @openai.com emails.</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Senior Staff Backend SWE, API Platform</td><td><code>API-Platform-SWE</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/senior-staff-backend-software-engineer-api-platform-san-francisco/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://openai.com/careers/search/" target="_blank" class="apply-btn" style="margin-top:.5rem">Open OpenAI careers portal ↗</a>
+</main>
+</body>
+</html>

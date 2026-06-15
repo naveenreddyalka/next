@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Reddy Alka — Job Search Hub</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; }
+  header { background: #1a3a5c; color: white; padding: 36px 40px; }
+  header h1 { font-size: 30px; font-weight: 800; }
+  header p { margin-top: 6px; opacity: 0.8; font-size: 14px; }
+  .container { max-width: 960px; margin: 36px auto; padding: 0 24px; }
+  .section-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; margin-top: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 16px; margin-bottom: 12px; }
+  .card { background: white; border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06); text-decoration: none; color: inherit; display: block; border-top: 4px solid var(--c); transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,.1); }
+  .co-name { font-size: 17px; font-weight: 700; color: var(--c); }
+  .role { font-size: 12px; color: #666; margin-top: 5px; line-height: 1.5; }
+  .job-id { font-size: 11px; color: #aaa; margin-top: 4px; }
+  .resume-bar { background: white; border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .resume-bar p { font-size: 13px; color: #555; flex: 1; min-width: 200px; }
+  .btn { display: inline-block; padding: 10px 20px; background: #1a3a5c; color: white; border-radius: 7px; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .btn:hover { opacity: .88; }
+
+  /* Task list */
+  .tasks-panel { background: white; border-radius: 12px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .tasks-panel h3 { font-size: 13px; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; border-bottom: 2px solid #1a3a5c; padding-bottom: 8px; }
+  .task-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f2f7; }
+  .task-item:last-child { border-bottom: none; }
+  .task-item input[type=checkbox] { margin-top: 3px; width: 16px; height: 16px; accent-color: #1a3a5c; flex-shrink: 0; cursor: pointer; }
+  .task-item label { font-size: 13px; color: #333; line-height: 1.5; cursor: pointer; }
+  .task-item input:checked + label { text-decoration: line-through; color: #aaa; }
+  .task-cat { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: .05em; margin: 14px 0 6px; }
+
+  .resources { text-align: center; padding: 20px 0 36px; }
+  .resources a { font-size: 12px; color: #aaa; text-decoration: none; margin: 0 10px; }
+  .resources a:hover { color: #555; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Naveen Reddy Alka</h1>
+  <p>Staff Software Engineer &nbsp;·&nbsp; naveenreddy.alka@gmail.com &nbsp;·&nbsp; San Francisco Bay Area &nbsp;·&nbsp; linkedin.com/in/naveenreddyalka</p>
+</header>
+<div class="container">
+
+  <div class="section-label" style="margin-top:0;">Resume</div>
+  <div class="resume-bar">
+    <p>Generic resume for cold applications. Each company card has a tailored version and full research inside.</p>
+    <a class="btn" href="Naveen_Reddy_Alka_Resume.pdf">📄 Download Generic Resume</a>
+  </div>
+
+  <div class="section-label">Target Companies</div>
+  <div class="grid">
+    <a class="card" href="anthropic/index.html" style="--c:#c85f31">
+      <div class="co-name">Anthropic</div>
+      <div class="role">Staff Software Engineer, Platform</div>
+      <div class="job-id">Job ID: 5157847008</div>
+    </a>
+    <a class="card" href="openai/index.html" style="--c:#10a37f">
+      <div class="co-name">OpenAI</div>
+      <div class="role">Senior Staff Backend SWE, API Platform</div>
+      <div class="job-id">Job ID: API-Platform-SWE</div>
+    </a>
+    <a class="card" href="xai/index.html" style="--c:#000000">
+      <div class="co-name">xAI</div>
+      <div class="role">Senior Grok Engineer / SWE</div>
+      <div class="job-id">Job ID: 4823149007</div>
+    </a>
+    <a class="card" href="nvidia/index.html" style="--c:#76b900">
+      <div class="co-name">NVIDIA</div>
+      <div class="role">Senior Cloud Platform Software Engineer</div>
+      <div class="job-id">Job ID: JR2003876</div>
+    </a>
+    <a class="card" href="servicenow/index.html" style="--c:#62d84e">
+      <div class="co-name">ServiceNow</div>
+      <div class="role">Staff Software Engineer, Backend Java</div>
+      <div class="job-id">Job ID: 744000086443311</div>
+    </a>
+    <a class="card" href="confluent/index.html" style="--c:#0092e0">
+      <div class="co-name">Confluent</div>
+      <div class="role">Senior Software Engineer — Apache Kafka</div>
+      <div class="job-id">Job ID: 15812054</div>
+    </a>
+    <a class="card" href="databricks/index.html" style="--c:#ff3621">
+      <div class="co-name">Databricks</div>
+      <div class="role">Staff SWE — Distributed Data Systems</div>
+      <div class="job-id">Job ID: 6937001002</div>
+    </a>
+    <a class="card" href="stripe/index.html" style="--c:#635bff">
+      <div class="co-name">Stripe</div>
+      <div class="role">Software Engineer, Payments</div>
+      <div class="job-id">Job ID: 7529787</div>
+    </a>
+    <a class="card" href="google/index.html" style="--c:#4285f4">
+      <div class="co-name">Google</div>
+      <div class="role">SWE, Cloud Financial Services</div>
+      <div class="job-id">Job ID: 121405674409075398</div>
+    </a>
+    <a class="card" href="snowflake/index.html" style="--c:#29b5e8">
+      <div class="co-name">Snowflake</div>
+      <div class="role">Senior SWE — Cloud Services</div>
+      <div class="job-id">Job ID: SNCOUS683A</div>
+    </a>
+    <a class="card" href="netflix/index.html" style="--c:#e50914">
+      <div class="co-name">Netflix</div>
+      <div class="role">Distributed Systems Engineer 5 — Cloud Gateway</div>
+      <div class="job-id">Job ID: 790315481039</div>
+    </a>
+    <a class="card" href="uber/index.html" style="--c:#1d1d1d">
+      <div class="co-name">Uber</div>
+      <div class="role">Staff SWE (Backend) — Java Platform</div>
+      <div class="job-id">Job ID: 156244</div>
+    </a>
+    <a class="card" href="spacex/index.html" style="--c:#005288">
+      <div class="co-name">SpaceX</div>
+      <div class="role">Sr. Backend SWE — Distributed Systems (Starlink)</div>
+      <div class="job-id">Job ID: 8300183002</div>
+    </a>
+  </div>
+
+  <div class="section-label">Job Search Checklist</div>
+  <div class="tasks-panel">
+    <h3>📋 Next Steps &amp; To-Do</h3>
+
+    <div class="task-cat">Resume &amp; Profile</div>
+    <div class="task-item"><input type="checkbox" id="t1"><label for="t1">Update LinkedIn title to <b>Staff Software Engineer</b> and sync key bullets from resume</label></div>
+    <div class="task-item"><input type="checkbox" id="t2"><label for="t2">Add phone number and LinkedIn URL to resume PDF header</label></div>
+    <div class="task-item"><input type="checkbox" id="t3"><label for="t3">Fill in Turo & Pearson metrics (latency %, team count) to strengthen those bullets</label></div>
+    <div class="task-item"><input type="checkbox" id="t4"><label for="t4">Get a referral at Stripe (strongest match for payments background)</label></div>
+
+    <div class="task-cat">Applications</div>
+    <div class="task-item"><input type="checkbox" id="t5"><label for="t5">Apply to <b>Stripe</b> — top match, payments depth (MakeMyTrip + Myntra + Wavecrest)</label></div>
+    <div class="task-item"><input type="checkbox" id="t6"><label for="t6">Apply to <b>Anthropic</b> — platform framework ownership directly matches</label></div>
+    <div class="task-item"><input type="checkbox" id="t7"><label for="t7">Apply to <b>Confluent</b> — Kafka used across 5+ companies in your history</label></div>
+    <div class="task-item"><input type="checkbox" id="t8"><label for="t8">Apply to <b>Databricks</b> — distributed data systems depth</label></div>
+    <div class="task-item"><input type="checkbox" id="t9"><label for="t9">Apply to <b>Netflix</b> — Finagle platform ownership is rare and directly relevant</label></div>
+    <div class="task-item"><input type="checkbox" id="t10"><label for="t10">Apply to remaining 8 companies</label></div>
+
+    <div class="task-cat">Interview Prep</div>
+    <div class="task-item"><input type="checkbox" id="t11"><label for="t11">LeetCode — 2 medium problems per day (focus: arrays, graphs, DP)</label></div>
+    <div class="task-item"><input type="checkbox" id="t12"><label for="t12">System design prep — review distributed systems patterns (Kafka, Cassandra, rate limiting, sharding)</label></div>
+    <div class="task-item"><input type="checkbox" id="t13"><label for="t13">Prepare STAR stories for top 5 Credit Karma achievements</label></div>
+    <div class="task-item"><input type="checkbox" id="t14"><label for="t14">Practice MakeMyTrip payments platform walkthrough (system design interview anchor)</label></div>
+    <div class="task-item"><input type="checkbox" id="t15"><label for="t15">Review each company's engineering blog before interviews</label></div>
+
+    <div class="task-cat">Networking</div>
+    <div class="task-item"><input type="checkbox" id="t16"><label for="t16">Reach out to 2–3 connections at target companies for referrals</label></div>
+    <div class="task-item"><input type="checkbox" id="t17"><label for="t17">Connect with recruiters at Stripe, Anthropic, Confluent on LinkedIn</label></div>
+    <div class="task-item"><input type="checkbox" id="t18"><label for="t18">Ask manager/VP at Credit Karma for a LinkedIn recommendation</label></div>
+  </div>
+
+</div>
+
+<div class="resources">
+  <a href="resources/comp_guide.html">Company Guide</a>
+  <a href="resources/interview_prep.html">Interview Prep</a>
+  <a href="resources/h1b_guide.html">H1B Guide</a>
+  <a href="resources/resume_analysis.html">Resume Analysis</a>
+  <a href="job_matches.md">Job Matches</a>
+</div>
+
+<script>
+// Persist checkbox state in localStorage
+document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+  const key = 'task_' + cb.id;
+  if (localStorage.getItem(key) === 'true') cb.checked = true;
+  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
+});
+</script>
+</body>
+</html>

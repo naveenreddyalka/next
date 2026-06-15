@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uber — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#1a1a18;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#1a1a18}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .fit-med{background:#FAEEDA;color:#633806}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#e8e8e8;color:#333}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #1a1a18;color:#1a1a18;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#f0f0ee}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#1a1a18;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#f0f0ee;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#333}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+  .warn-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin:.5rem 0}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">Uber</span>
+</div>
+<div class="hero">
+  <h1>Uber</h1>
+  <p>A-Tier · Java Platform / Payments / Distributed Systems · San Francisco, CA · 45 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>🚗 Global mobility + delivery platform</span>
+    <span>🛂 H1B active sponsor</span>
+    <span>✅ Stable after 2020 restructuring</span>
+    <span>Senior SWE target level</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Senior Software Engineer (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$198–224K</div><div class="lbl">Base (Senior SF)</div></div>
+    <div class="comp-card"><div class="num">~$150K</div><div class="lbl">Stock / yr (est)</div></div>
+    <div class="comp-card"><div class="num">$350–375K</div><div class="lbl">Estimated TC</div></div>
+    <div class="comp-card"><div class="num">$500K+</div><div class="lbl">Senior Staff ceiling</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Uber job postings + Levels.fyi, 2026. Base posted: $198K–$224K for Senior SF roles. TC estimate includes RSUs and bonus. Senior Staff level reaches $500K+. Note: lower base than other targets — negotiate stock heavily.</p>
+
+  <div class="warn-box">
+    ⚠️ Uber's base pay is lower than other targets ($198K–$224K vs. $250K+ elsewhere). TC at Senior level may fall below your $500K target. Apply if other offers are not materializing or to use as a competing offer in negotiations. Senior Staff level hits $500K+ — worth aiming for that level.
+  </div>
+
+  <h2>Why you're a strong match</h2>
+  <div class="info-box">
+    Uber's Java Platform team is a direct match for your background: they build and maintain the core Java microservices framework that all Uber engineering teams run on — same as your CreditKarma Portals Framework role. You've done this job. Additionally, Uber's Fares Platform and payments systems need engineers with fintech depth — your Myntra/Flipkart (100K payments/day) and MakeMyTrip (payment system revamp) experience is highly relevant. They require 8+ yrs experience in distributed systems — you have 17.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Public (NYSE: UBER). Profitable mobility platform. Liquid RSUs.</li>
+    <li><strong>Salary range (Bay Area):</strong> Senior SWE Bay Area: $350K-$400K TC; Senior Staff $500K-$600K+ (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Public, stable post-restructuring. Push Senior Staff for $500K+ target.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>RSU equity + refresh</li><li>401(k) match</li><li>Uber credits / mobility perks</li><li>Medical/dental/vision</li><li>Free lunch (SF office, team-dependent)</li><li>Hybrid SF office</li><li>Parental leave</li></ul>
+
+    <h2 id="how-to-crack">How to crack Uber</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Standard big-tech loop with bar raiser. Real-time systems flavor in design.</li>
+      <li><strong>Rounds:</strong> 4-5: recruiter -&gt; 2x coding -&gt; system design -&gt; HM/bar raiser.</li>
+      <li><strong>Coding:</strong> Medium LeetCode, Java/Go. Distributed failure scenarios emphasized.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>2-3 weeks LC Medium</li><li>Design: surge pricing engine, dispatch matching, distributed rate limiter</li><li>Lead with Java Platform parallel to CK Portals Framework</li><li>Prepare Myntra/MMT payments stories for fares/payments teams</li><li>Negotiate level: refuse SWE II, target Senior Staff</li><li>Practice explaining on-call/incident response at scale</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">devbrainiac | 2025-10</span></div><div class="q-text">Deep dive on production failure you owned and cross-team disagreement <a href="https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">devbrainiac | 2025-10</span></div><div class="q-text">Design real-time stock price notification system <a href="https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">interviewexperiences.in | 2025-11</span></div><div class="q-text">Design Splitwise - minimize transactions, handle concurrent expense entries <a href="https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Tech Interview Dot Org | 2026-01</span></div><div class="q-text">Design real-time driver dispatch - match riders to nearest driver in 1-2 seconds <a href="https://www.techinterview.org/post/3233460273/uber-interview-guide-2026-dispatch-systems-geospatial-algorithms-and-marketplace-engineering/" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewexperiences.in | 2025-11</span></div><div class="q-text">Implement Linux filesystem commands: mkdir, cd, ls, pwd (N-ary tree) <a href="https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewexperiences.in | 2025-11</span></div><div class="q-text">Minimax game - two players pick only corner values each turn <a href="https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewexperiences.in | 2025-11</span></div><div class="q-text">Optimal Binary Search Tree variation (DP on trees) <a href="https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025" target="_blank" class="link-sm">source</a></div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Java Platform role is exact CK parallel</li><li>SF office</li><li>Payments teams value MMT/Myntra</li><li>Good leverage for negotiations elsewhere</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Senior TC likely below $500K target</li><li>Must push for Senior Staff</li><li>Lower base than peers</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at Uber</h2>
+  <ul class="prep-list">
+    <li>4–5 rounds: recruiter screen → coding (2x) → system design → hiring manager / bar raiser</li>
+    <li>Coding: Medium LeetCode. Java or Go preferred. They care about correctness, handling edge cases, and thinking through failure scenarios in distributed systems.</li>
+    <li>System design: Design Uber's surge pricing system, a distributed rate limiter, or a real-time dispatch matching platform. Think high-throughput, low-latency, fault tolerance.</li>
+    <li>Uber values: ownership, moving fast, data-driven decisions. Show you can own a system end-to-end and make independent architectural decisions.</li>
+    <li>Level negotiation: Push for Senior or Senior Staff — don't accept SWE II regardless of initial offer. Your 17 years of experience should be Senior at minimum.</li>
+    <li>H1B: Large company, established process. Confirm sponsorship at recruiter screen.</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Staff Software Engineer (Backend) - Java Platform</td><td><code>156244</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/global/en/careers/list/156244/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.uber.com/us/en/careers/teams/engineering/" target="_blank" class="apply-btn" style="margin-top:.5rem">Open Uber careers portal ↗</a>
+</main>
+</body>
+</html>

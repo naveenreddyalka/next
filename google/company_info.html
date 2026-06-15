@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#4285F4;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#4285F4}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .fit-med{background:#FAEEDA;color:#633806}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#E8F0FE;color:#1A56CE}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #4285F4;color:#4285F4;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#E8F0FE}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#4285F4;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#E8F0FE;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#1A56CE}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+  .warn-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin:.5rem 0}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">Google</span>
+</div>
+<div class="hero">
+  <h1>Google</h1>
+  <p>A-Tier · Cloud AI / Payments Infrastructure · Mountain View, CA · 40 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>🔵 18-yr Glassdoor best place to work</span>
+    <span>🛂 #1 H1B volume — 1,050+ FY2025</span>
+    <span>L5 target level</span>
+    <span>→ L6 within 18 months</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Software Engineer L5 (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$225K</div><div class="lbl">Base (L5)</div></div>
+    <div class="comp-card"><div class="num">$200K</div><div class="lbl">Stock / yr (avg)</div></div>
+    <div class="comp-card"><div class="num">$425K</div><div class="lbl">Median TC (L5)</div></div>
+    <div class="comp-card"><div class="num">$2.24M</div><div class="lbl">L9 ceiling</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Levels.fyi, May 2026. L5 = Senior SWE equivalent. L6 Bay Area median = $700K–$1.2M. Path: land L5 → promote to L6 in 18 months → hits $800K target.</p>
+
+  <div class="highlight-box">
+    ⚡ Google has had layoffs in 2025–26 but NOT in Cloud AI or Payments — those teams are actively growing. Target: Google Cloud infrastructure (Cloud Service Mesh, distributed systems) or Google Pay / Payments Platform (your fintech background is directly relevant). Google is also by far the most predictable H1B sponsor — 1,050+ approvals per year.
+  </div>
+
+  <h2>Why you're a strong match</h2>
+  <div class="info-box">
+    Google Cloud teams need engineers who've built and operated distributed systems at scale — you have 17 years of that across fintech, payments, ecommerce. Google Pay needs engineers with deep payments domain expertise — your Myntra/Flipkart (500M carts, 100K payments/day) and MakeMyTrip (payment system revamp, multi-datacenter) background is exactly right. Your MS CS (ASU 2021) also satisfies Google's education preference for L5.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Public (NASDAQ: GOOGL). Mega-cap, highly liquid RSUs. Most predictable equity.</li>
+    <li><strong>Salary range (Bay Area):</strong> L5 SWE Bay Area: $400K-$500K TC; L6 Staff $700K-$1.2M (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Public RSUs with refresh. L5-&gt;L6 promotion is the path to $700K+.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>Free meals at Bay Area campuses (famous perk)</li><li>RSU grants + semi-annual refresh</li><li>401(k) match + mega backdoor Roth options</li><li>ESPP discount</li><li>Excellent medical/dental/vision</li><li>Generous parental leave (18-22 weeks)</li><li>On-site gyms, massages, shuttles (campus-dependent)</li></ul>
+
+    <h2 id="how-to-crack">How to crack Google</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Classic Google loop. Hardest LC bar in this list. Googleyness behavioral round.</li>
+      <li><strong>Rounds:</strong> 5-7: recruiter -&gt; phone screen -&gt; 4-5 onsite (coding, system design, Googleyness, team match).</li>
+      <li><strong>Coding:</strong> Hard LeetCode only. 100+ problems recommended. Graphs, DP, strings are core.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>6-8 weeks: NeetCode 150 + 50 extra Hard (start early - longest timeline)</li><li>System design: Google-scale search index, Maps sharding, global payments</li><li>Prep 5 Googleyness STAR stories (humility, collaboration, ambiguity)</li><li>Negotiate level upfront: push L5 with 17 yrs + MS CS</li><li>Target Cloud AI or Google Pay teams specifically</li><li>Use interview warmup on leetcode.com/google top questions</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">gitGood.dev | 2025-11</span></div><div class="q-text">Googleyness: mentor junior engineers, lead without authority, controversial decision <a href="https://gitgood.dev/prep/google-l5-swe" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">Onsites.fyi | 2025-10</span></div><div class="q-text">Design Google-scale autocomplete with prefix frequency ranking <a href="https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Medium L5 reports | 2025-09</span></div><div class="q-text">Graph: shortest paths, topological sort, strongly connected components <a href="https://medium.com/@rohitverma_87831/my-interview-experience-at-google-afc1080df175" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Onsites.fyi / Medium | 2025-10</span></div><div class="q-text">Median of data stream (two heaps) <a href="https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">Onsites.fyi | 2025-10</span></div><div class="q-text">LRU cache O(1) - common Google follow-up chain <a href="https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions" target="_blank" class="link-sm">source</a></div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Most reliable H1B sponsor</li><li>L5/L6 promotion path to $700K+</li><li>Cloud + Pay teams hiring</li><li>18-year Glassdoor best place</li><li>Brand and resume signal</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>Longest process (3-4 months)</li><li>Hardest coding bar</li><li>L5 median below target day-one</li><li>Org uncertainty from layoffs</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at Google</h2>
+  <ul class="prep-list">
+    <li>5–7 rounds: recruiter → coding phone screen → 4–5 onsite rounds (coding, system design, behavioral, Googleyness)</li>
+    <li>Coding: Hard LeetCode. Highest bar of all 7 companies. Graphs, trees, DP, strings. Do 100+ problems before interviewing. Use NeetCode.io roadmap.</li>
+    <li>System design: Design Google Maps at scale, a distributed search index, or a global payments system. Think about sharding, consistency, latency at Google's size.</li>
+    <li>Googleyness round: Behavioral + culture fit. Google values intellectual humility, collaboration, and comfort with ambiguity. Prepare 5 STAR stories.</li>
+    <li>Timeline: Apply now — Google's process takes 2–4 months. Start this one early, in parallel with faster-moving companies.</li>
+    <li>H1B: #1 volume sponsor in the US (1,050+ FY2025 approvals). Dedicated immigration team. Most reliable H1B sponsor of all 7 targets. Confirm with recruiter upfront.</li>
+    <li>Leveling: Push for L5. If they suggest L4, negotiate — your 17 years + MS CS should land L5. L5 = Senior SWE = your target.</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 1 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Software Engineer, Google Cloud Financial Services</td><td><code>121405674409075398</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/121405674409075398/" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://careers.google.com/jobs/results/?category=SOFTWARE_ENGINEERING" target="_blank" class="apply-btn" style="margin-top:.5rem">Open Google careers portal ↗</a>
+</main>
+</body>
+</html>

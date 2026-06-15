@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xAI - Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .hero{background:#000000;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#000000}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+  .info-box{background:#f0f0f0;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#111}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"\2192";color:#000000;flex-shrink:0}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #000000;color:#000000;text-decoration:none;background:#fff}
+  .topnav{background:#1a3a5c;padding:10px 24px;font-size:13px}
+  .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px}
+  .topnav a:hover{color:white}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+</head>
+<body>
+<nav class="topnav"><a href="../index.html">&larr; Home</a><a href="index.html">&larr; Job Page</a></nav>
+<div class="hero">
+  <h1>xAI</h1>
+  <p>High-upside &middot; Grok / Platform Engineering &middot; Palo Alto / San Francisco</p>
+  <div class="hero-meta"><span>Pre-IPO AI startup</span><span>Small team, high ownership</span><span>Fast 2-3 round process</span></div>
+</div>
+<main>
+  <h2>Compensation - High-upside</h2>
+  <div class="comp-grid"><div class="comp-card"><div class="num">$250K-$400K+</div><div class="lbl">Base</div></div><div class="comp-card"><div class="num">Significant</div><div class="lbl">Pre-IPO equity</div></div><div class="comp-card"><div class="num">-</div><div class="lbl">TC varies</div></div><div class="comp-card"><div class="num">High</div><div class="lbl">Equity upside</div></div></div>
+  <p style="font-size:.82rem;color:#888">Pre-IPO equity could be very valuable; base lower than mega-caps.</p>
+  <div class="highlight-box">Small team, high ownership. Platform engineering matches Finagle framework ownership.</div>
+  <div class="info-box"><strong>Why you are a strong match:</strong> Thrives in small, high-impact teams moving fast.</div>
+  <p style="font-size:.82rem;color:#666;margin-top:.5rem"><strong>H1B / Visa:</strong> Confirm sponsorship at recruiter screen.</p>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Very fast interview process</li><li>High ownership on Grok</li><li>Pre-IPO equity upside</li><li>Platform experience relevant</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>H1B process less proven</li><li>Long hours likely</li><li>Less predictable TC</li><li>Smaller brand stability</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+  <h2>Interview format at xAI</h2>
+  <ul class="prep-list"><li>2-3 rounds total</li><li>Technical screen: coding + system design</li><li>Loop: deep system design, coding, culture fit</li><li>Lead with MakeMyTrip payments + Credit Karma platform framework</li></ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">0 submitted &middot; 2 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Senior Grok Engineer</td><td><code>4823149007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/xai/jobs/4823149007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Software Engineer - Grok Voice</td><td><code>4720475007</code></td><td><span class="status-badge status-none">Not started</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/xai/jobs/4720475007" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Private (Elon Musk). Pre-IPO; part of X ecosystem. Very high upside, very high risk.</li>
+    <li><strong>Salary range (Bay Area):</strong> Senior engineer: $250K-$400K base + significant pre-IPO equity. TC varies widely.</li>
+    <li><strong>Growth / equity outlook:</strong> Small team scaling Grok. Equity could be valuable if xAI exits or grows with X integration.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>Large pre-IPO equity grants</li><li>Small team = high ownership</li><li>Fast decision-making</li><li>Medical/dental/vision (standard startup package)</li><li>401(k) (verify at offer stage)</li><li>Palo Alto / SF office</li></ul>
+
+    <h2 id="how-to-crack">How to crack xAI</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Fast, lean loop. Less process than FAANG. Depth and speed matter more than polish.</li>
+      <li><strong>Rounds:</strong> 2-3 total: technical screen (1hr) -&gt; virtual loop (2-3 hrs) coding + system design + culture.</li>
+      <li><strong>Coding:</strong> Medium-Hard LeetCode plus practical system thinking. May skew practical over pure LC.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>2 weeks focused LC: 40 Medium, 15 Hard (arrays, graphs, system design basics)</li><li>Prepare end-to-end system stories: MakeMyTrip payments + CK platform framework</li><li>Practice whiteboarding a rate-limited API in 45 min</li><li>Read about Grok product and xAI mission before culture chat</li><li>Emphasize ownership, speed, and shipping under ambiguity</li></ul>
+</main>
+</body>
+</html>

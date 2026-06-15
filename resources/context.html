@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Context — Naveen's Next Move</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.7}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .hero{background:#1a1a18;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{opacity:.7;font-size:.9rem}
+  .hero-meta{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.8rem;background:rgba(255,255,255,.1);padding:3px 12px;border-radius:20px}
+  main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.15rem;font-weight:500;margin:2.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:2px solid #1a1a18}
+  h3{font-size:1rem;font-weight:500;margin:1.25rem 0 .4rem;color:#333}
+  p{font-size:.9rem;margin-bottom:.75rem;color:#333}
+  ul,ol{padding-left:1.25rem;margin-bottom:.75rem}
+  li{font-size:.9rem;margin-bottom:.3rem;color:#333}
+  .section{background:#fff;border:1px solid #e5e4e0;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px;background:#EEEDFE;color:#3C3489}
+  .tag-green{background:#EAF3DE;color:#27500A}
+  .tag-blue{background:#E6F1FB;color:#0C447C}
+  .tag-amber{background:#FAEEDA;color:#633806}
+  .tag-red{background:#FCEBEB;color:#A32D2D}
+  .comp-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+  .comp-table th{background:#f5f4f0;padding:.6rem 1rem;text-align:left;font-weight:500;font-size:.78rem;color:#555;border-bottom:1px solid #e5e4e0}
+  .comp-table td{padding:.6rem 1rem;border-bottom:1px solid #f0efe9}
+  .comp-table tr:last-child td{border-bottom:none}
+  .highlight{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.88rem;color:#633806;margin:.75rem 0}
+  .good{background:#f7fdf9;border-left:3px solid #2a9d6e;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.88rem;margin:.5rem 0}
+  .warn{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.88rem;margin:.5rem 0}
+  .cowork-prompt{background:#1a1a18;color:#e8e8e4;padding:1.25rem 1.5rem;border-radius:10px;font-size:.85rem;font-family:monospace;line-height:1.7;margin:1rem 0;white-space:pre-wrap}
+  .toc{background:#fff;border:1px solid #e5e4e0;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+  .toc h3{margin:0 0 .75rem;font-size:.95rem}
+  .toc ol{padding-left:1.25rem}
+  .toc li{font-size:.88rem;margin-bottom:.3rem}
+  .toc a{color:#185FA5;text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  code{background:#f0efe9;padding:2px 6px;border-radius:4px;font-size:.82rem;font-family:monospace}
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a></nav>
+<div class="topbar">
+  <a href="../index.html">← Home</a>
+  <span style="color:#555">/</span>
+  <span style="color:#fff">Full context</span>
+</div>
+<div class="hero">
+  <h1>Full Chat Context — Naveen's Next Move</h1>
+  <p>Everything researched and decided in the June 2026 Claude conversation. Read this to get any AI assistant fully up to speed.</p>
+  <div class="hero-meta">
+    <span>📅 June 1, 2026</span>
+    <span>🗂 Source: claude.ai conversation</span>
+    <span>👤 Naveen Reddy Alka</span>
+    <span>📍 San Ramon, CA 94583</span>
+  </div>
+</div>
+<main>
+
+  <div class="toc">
+    <h3>Table of contents</h3>
+    <ol>
+      <li><a href="#profile">Who Naveen is — profile snapshot</a></li>
+      <li><a href="#goals">Job search goals and constraints</a></li>
+      <li><a href="#resume">Resume summary and GitHub findings</a></li>
+      <li><a href="#companies">Target companies — full research</a></li>
+      <li><a href="#comp">Compensation data (Bay Area, June 2026)</a></li>
+      <li><a href="#h1b">H1B situation and 2026 lottery rules</a></li>
+      <li><a href="#strengths">Naveen's key strengths to lead with</a></li>
+      <li><a href="#gaps">Gaps and things to fix before interviewing</a></li>
+      <li><a href="#roles">Specific open roles found (June 2026)</a></li>
+      <li><a href="#cowork">Cowork handoff prompt</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2 id="profile">1. Who Naveen is — profile snapshot</h2>
+  <div class="section">
+    <p><strong>Full name:</strong> Naveen Reddy Alka</p>
+    <p><strong>Location:</strong> San Ramon, CA 94583 (Bay Area, ~30 min from Santa Clara, ~45 min from SF)</p>
+    <p><strong>Email:</strong> naveenreddy.alka@gmail.com</p>
+    <p><strong>Phone:</strong> 314-498-5314</p>
+    <p><strong>LinkedIn:</strong> linkedin.com/in/naveen-reddy-alka-01861817/</p>
+    <p><strong>GitHub:</strong> github.com/naveenreddyalka (22 public repos)</p>
+    <p><strong>Current role:</strong> Senior Software Engineer II, CreditKarma (Oakland) — Feb 2022 to present</p>
+    <p><strong>Current team:</strong> Portals Framework — owns the Finagle-based web framework used by ALL product development teams at CreditKarma. Also contributes to open-source projects CreditKarma maintains.</p>
+    <p><strong>Education:</strong> MS Computer Science, Arizona State University (2021) · B.Tech Civil Engineering, NIT Warangal (2007) · PG Construction Management, NICMAR Pune (2014)</p>
+    <p><strong>Experience:</strong> 17+ years across FinTech, Payments, Ecommerce, Banking, Education, Financial Services</p>
+    <p><strong>Languages spoken:</strong> English, Hindi, Telugu</p>
+    <p><strong>Born:</strong> March 29, 1986</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 id="goals">2. Job search goals and constraints</h2>
+  <div class="section">
+    <h3>Compensation targets</h3>
+    <ul>
+      <li>Base salary: <strong>$250K+ minimum</strong></li>
+      <li>Total compensation: <strong>$500K–$800K target</strong> (prefer $800K+)</li>
+      <li>This is achievable at Senior/Staff level at Anthropic, Databricks, Confluent, and Stripe L4+</li>
+    </ul>
+    <h3>Must-haves</h3>
+    <ul>
+      <li><strong>H1B visa sponsorship</strong> — required. Currently employed at CreditKarma. If already on H1B there, a transfer (not new lottery) may apply — needs confirmation.</li>
+      <li><strong>Bay Area location</strong> — San Ramon base. Willing to commute to Santa Clara, Mountain View, San Francisco. Not relocating.</li>
+      <li><strong>No-layoff / stable companies</strong> — explicitly does not want to join companies with track records of mass layoffs (avoid: Amazon, Intel, Microsoft, Block)</li>
+      <li><strong>AI-winning companies</strong> — wants to be at companies leading or winning the AI race (software or hardware)</li>
+      <li><strong>Good culture</strong> — highly rated on Glassdoor, employee-friendly, transparent leadership</li>
+    </ul>
+    <h3>Priority order for applying</h3>
+    <ol>
+      <li>Anthropic (highest TC, best profile match, platform infra)</li>
+      <li>NVIDIA (best culture rating, strong H1B, Scala/Kafka match)</li>
+      <li>ServiceNow (closest to home, Java platform match, stable)</li>
+      <li>Confluent (Kafka expert match — strongest keyword fit)</li>
+      <li>Databricks (Scala/Kafka/distributed systems)</li>
+      <li>Stripe (payments domain expertise)</li>
+      <li>Google (highest H1B volume, long-term path to L6+)</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2 id="resume">3. Resume summary and GitHub findings</h2>
+  <div class="section">
+    <h3>Career timeline</h3>
+    <ul>
+      <li><strong>CreditKarma</strong> (Feb 2022–present) — Sr. SWE II, Portals Framework. Scala + TypeScript. Owns cross-team web framework (Finagle-based, EOL). Open source contributions.</li>
+      <li><strong>Turo</strong> (Jan 2021–Feb 2022) — Sr. SWE, platform & performance. API/DB optimization, infrastructure bottlenecks.</li>
+      <li><strong>Pearson</strong> (Jan 2020–Jan 2021) — Sr. Engineer, cross-cutting team. Spring WebFlux, Project Reactor, Kubernetes, CouchBase, Kafka, AWS.</li>
+      <li><strong>Nordstrom</strong> (Mar 2019–Nov 2019) — Sr. Engineer, Ordering & Allocation. Microservices migration, Spring Boot, Docker, K8s, AWS Aurora, Cassandra, Kafka, GitLab CI/CD.</li>
+      <li><strong>Wenova</strong> (Mar 2018–Mar 2019) — SWE. Customer Data Hub microservices. Java, Spring, Hibernate, Docker, PostgreSQL, Kafka, Salesforce integration.</li>
+      <li><strong>MakeMyTrip</strong> (Sep 2016–Jan 2018) — Sr. Principal SWE / Architect, Payments. Complete payment system revamp from scratch. Multi-datacenter, event-driven retry logic. Response times cut 50%, maintenance cost cut 60%, revenue +millions. Spring Boot, JPA-Hibernate, MySQL, CouchBase, RabbitMQ.</li>
+      <li><strong>VERSE/DailyHunt</strong> (Apr 2016–Sep 2016) — Principal SWE IC4. Elasticsearch + NodeJS search platform for Books.</li>
+      <li><strong>Myntra/Flipkart</strong> (Jan 2014–Apr 2016) — Tech Lead. Payments, Cart, Address services. 500M carts, 100K+ payments/day. In-house distributed DB sharding over MySQL + Cassandra.</li>
+      <li><strong>Wavecrest</strong> (Nov 2009–Dec 2013) — Dev Lead. Cashier + online Ewallet. Prepaid cards, gift cards, payroll cards, digital wallets. Clients: PartyGaming-Bwin, Loopium, TrillionPay, Reliance, GTECH. 100K new cards/day.</li>
+      <li><strong>IvyComptech</strong> (Jan 2009–Nov 2009) — SWE. Party Affiliates and Loyalty systems.</li>
+      <li><strong>Cognizant</strong> (Nov 2007–Jan 2009) — Program Analyst. American Express "Apply site" — Struts, DOJO, XSLT.</li>
+    </ul>
+
+    <h3>Core tech stack</h3>
+    <div style="margin:.5rem 0">
+      <span class="tag">Java (SCJP 98%)</span><span class="tag">Scala</span><span class="tag">Kotlin</span><span class="tag">Python</span>
+      <span class="tag">Spring Boot</span><span class="tag">Spring WebFlux</span><span class="tag">Hibernate</span>
+      <span class="tag">Kafka</span><span class="tag">Cassandra</span><span class="tag">Redis</span><span class="tag">CouchBase</span>
+      <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Azure</span>
+      <span class="tag">Microservices</span><span class="tag">Event-driven architecture</span><span class="tag">REST/SOAP</span>
+      <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Elasticsearch</span>
+      <span class="tag">Finagle</span><span class="tag">TypeScript</span><span class="tag">NodeJS</span>
+      <span class="tag">RabbitMQ</span><span class="tag">ActiveMQ</span><span class="tag">Datadog</span><span class="tag">Splunk</span>
+    </div>
+
+    <h3>GitHub audit (github.com/naveenreddyalka)</h3>
+    <ul>
+      <li>22 public repos total</li>
+      <li><strong>home</strong> — Java/Maven/Spring Boot personal project (81% Java, 16% TeX, 3% Classic ASP). 10 commits, 2 PRs open.</li>
+      <li><strong>humane-discovery</strong> — forked from 360fy. Elasticsearch-based search platform with fuzzy search, autocomplete, vernacular support, synonym support. JavaScript.</li>
+      <li><strong>dh-books-discovery, dh-transliterate, humane-searcher</strong> — from DailyHunt period. JavaScript + Java.</li>
+      <li><strong>Theater</strong> — Java project.</li>
+      <li><strong>Arctic Code Vault Contributor</strong> badge + Pull Shark badge earned.</li>
+      <li class="warn">⚠️ No public Scala repos despite Scala being primary language at CreditKarma for 4+ years.</li>
+      <li class="warn">⚠️ No public Kubernetes/cloud-native demo projects.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 id="companies">4. Target companies — full research</h2>
+  <div class="section">
+
+    <h3>🟣 NVIDIA — S-Tier</h3>
+    <ul>
+      <li>Glassdoor #1 Best Tech Company 2026. Flat org, minimal bureaucracy, transparent leadership.</li>
+      <li>H1B: 3,244 approvals FY2025. Avg salary $221,796. Dedicated immigration counsel.</li>
+      <li>No major layoffs. Stock (NSUs) vests 40/30/20/10% over 4 years.</li>
+      <li>Target level: IC4 (Senior). IC4 Bay Area TC = ~$369K. IC6 ceiling = $608K.</li>
+      <li>Best fit teams: NGC Cloud Platform, Network Telemetry Backend.</li>
+      <li>Why fit: Scala + Kafka + Cassandra + Kubernetes + distributed systems = direct match for cloud infra teams.</li>
+    </ul>
+
+    <h3>🟢 Anthropic — S-Tier</h3>
+    <ul>
+      <li>Frontier AI company (makes Claude). Growing fast, no layoffs, mission-driven.</li>
+      <li>H1B: Confirmed active sponsor. Only contact from @anthropic.com emails — watch for scams.</li>
+      <li>Senior SWE median TC Bay Area = $554,750. Base = $318K. Stock = $233K/yr. Top reported = $920K.</li>
+      <li>Lead SWE = $759K median TC. This is the $800K path.</li>
+      <li>Best fit: Platform — Service Infra team. The job description is nearly identical to Naveen's current CreditKarma role.</li>
+      <li>Open roles found: Senior SWE Platform (job ID 5157844008), Staff+ SWE Platform Auth&Identity (5157847008), SWE Research Data Platform (5191226008).</li>
+    </ul>
+
+    <h3>🟢 ServiceNow — S-Tier</h3>
+    <ul>
+      <li>Glassdoor Top 3 Tech 2026. Santa Clara — closest major target to San Ramon.</li>
+      <li>H1B: Active sponsor, enterprise company with established process.</li>
+      <li>Senior SWE TC: $400K–$550K. Building AI-powered enterprise platform aggressively.</li>
+      <li>Best fit: Developer Sandbox team — Java backend platform engineering. Direct Spring Boot match.</li>
+    </ul>
+
+    <h3>🔵 Stripe — A-Tier</h3>
+    <ul>
+      <li>Payments infrastructure for the internet. $91.5B valuation. 494 open roles as of June 2026.</li>
+      <li>H1B: Active fintech sponsor. Stripe, Robinhood, Chime are the top fintech H1B sponsors.</li>
+      <li>Bay Area L4 median TC = $427K. L5 = $1.08M (top). RSU refresh available after 9 months.</li>
+      <li>Best fit: Payments (Money Movement), Payments & Risk teams. Naveen's MakeMyTrip + Flipkart payments experience is a direct match.</li>
+      <li>Naveen's unique credential: designed payment system handling multi-datacenter traffic, 50% latency reduction, revenue increase in millions — this is exactly Stripe's Payments team narrative.</li>
+    </ul>
+
+    <h3>⚡ Databricks — A-Tier</h3>
+    <ul>
+      <li>Data + AI platform. Winning the data+AI race. No major layoffs. SF HQ.</li>
+      <li>H1B: Explicitly confirmed on careers page. Case-by-case discussion at interview.</li>
+      <li>L5 median TC = $435K. L7 top = $1.68M.</li>
+      <li>Best fit: Platform / Runtime Infra teams. Scala + Kafka + Spark Streaming match.</li>
+    </ul>
+
+    <h3>📡 Confluent — A-Tier (hidden gem)</h3>
+    <ul>
+      <li>The company behind Apache Kafka. Mountain View. Active H1B sponsor.</li>
+      <li>L5 TC = $517K–$733K (L6a). Strong upside.</li>
+      <li>Best fit: Naveen has used Kafka at MakeMyTrip, Wenova, Pearson, Nordstrom, and CreditKarma — 5 separate companies. This is an almost unmatched keyword fit for a Confluent application.</li>
+      <li>Target team: Control Plane / Cloud Infra (Kubernetes operators, distributed systems).</li>
+    </ul>
+
+    <h3>🔵 Google — A-Tier</h3>
+    <ul>
+      <li>18-year consecutive Glassdoor Best Places to Work honoree. Mountain View.</li>
+      <li>H1B: #1 volume sponsor (1,050+ approvals FY2025). Predictable, structured, high-volume.</li>
+      <li>L5 Bay Area median TC = $425K. L6 = $700K–$1.2M. L9 ceiling = $2.24M.</li>
+      <li>Best fit: Google Cloud AI infrastructure, Google Pay / Payments Platform teams. Target L5, aim for L6 within 18 months.</li>
+      <li>Note: Some layoffs in 2025–26 but NOT in AI/cloud teams — these are actively growing.</li>
+    </ul>
+
+    <h3>Companies to avoid (heavy layoffs 2025–26)</h3>
+    <ul>
+      <li>Amazon: 30,184 layoffs</li>
+      <li>Intel: 27,058 layoffs</li>
+      <li>Microsoft: 15,347 layoffs</li>
+      <li>Block: ~50% workforce cut in 2026</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2 id="comp">5. Compensation data (Bay Area, June 2026)</h2>
+  <div class="section">
+    <table class="comp-table">
+      <tr><th>Company</th><th>Level</th><th>Base</th><th>Stock/yr</th><th>Median TC</th><th>Top reported</th><th>$500K target?</th></tr>
+      <tr><td>Anthropic</td><td>Senior SWE</td><td>$318K</td><td>$233K</td><td>$555K</td><td>$890K</td><td>✅ Yes</td></tr>
+      <tr><td>Anthropic</td><td>Lead SWE</td><td>$329K</td><td>$430K</td><td>$759K</td><td>$920K</td><td>✅ Yes</td></tr>
+      <tr><td>Databricks</td><td>L5</td><td>~$220K</td><td>~$215K</td><td>$435K</td><td>$1.68M (L7)</td><td>✅ Yes</td></tr>
+      <tr><td>Confluent</td><td>L5</td><td>~$220K</td><td>~$297K</td><td>$517K</td><td>$733K</td><td>✅ Yes</td></tr>
+      <tr><td>Stripe</td><td>L4 Bay Area</td><td>~$230K</td><td>~$197K</td><td>$427K</td><td>$1.08M (L5)</td><td>⚠️ Push to L4+</td></tr>
+      <tr><td>NVIDIA</td><td>IC4</td><td>$250K</td><td>$129K</td><td>$369K</td><td>$608K (IC6)</td><td>⚠️ Negotiate stock</td></tr>
+      <tr><td>Google</td><td>L5 Bay Area</td><td>~$225K</td><td>~$200K</td><td>$425K</td><td>$2.24M (L9)</td><td>⚠️ Need L5/L6</td></tr>
+      <tr><td>ServiceNow</td><td>Senior SWE</td><td>~$200K</td><td>~$200K</td><td>$400–550K</td><td>$700K+</td><td>✅ Likely</td></tr>
+      <tr><td>Intuit</td><td>Senior SWE</td><td>~$190K</td><td>~$58K</td><td>$248K</td><td>$1.13M (DPSWE)</td><td>❌ Not at Sr.</td></tr>
+    </table>
+    <p style="font-size:.78rem;color:#888">Source: Levels.fyi + Blind verified, May–June 2026. Stock annualized from 4-yr grant.</p>
+
+    <div class="highlight">
+      <strong>$800K+ realistic path:</strong> Land at Anthropic Senior SWE ($555K) → promote to Lead in 12–18 months ($759K). Or: Databricks L5 → L6 ($700K–$1M+). Or: Confluent L5 → L6a ($733K).
+    </div>
+
+    <h3>Negotiation leverage points</h3>
+    <ul>
+      <li>Apply to 3–4 companies simultaneously — competing offers move numbers by $50K–$100K</li>
+      <li>Negotiate stock grant size over base salary — easier to approve, better upside</li>
+      <li>Level IV salaries ($200K+) = 61% H1B lottery rate — premium companies = best H1B odds too</li>
+      <li>Cite Levels.fyi data explicitly in negotiations — now standard and expected</li>
+      <li>Ask for sign-on bonus to cover unvested CreditKarma equity cliff</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2 id="h1b">6. H1B situation and 2026 lottery rules</h2>
+  <div class="section">
+    <div class="good">New wage-weighted lottery (Feb 27, 2026): Level IV roles ($200K+ in Bay Area) = 61% selection rate vs 15% for Level I. Targeting premium companies is now the optimal H1B strategy.</div>
+    <div class="good">$100K supplemental fee for overseas hires does NOT apply to Naveen — already in the US at CreditKarma. Employers strongly prefer in-country candidates.</div>
+    <div class="warn">Critical first step: Determine current visa status at CreditKarma. If already on H1B → only need H1B transfer (no lottery, no waiting, apply anytime). This changes the entire job search timeline.</div>
+
+    <h3>H1B approvals by target company (FY2025)</h3>
+    <ul>
+      <li>Google: 1,050+ approvals, dedicated immigration team, most reliable</li>
+      <li>NVIDIA: 3,244 approvals, avg $221,796, structured legal counsel</li>
+      <li>Anthropic: Confirmed (5+ approvals), smaller company, case-by-case, ask early</li>
+      <li>Databricks: Explicitly confirmed on careers page</li>
+      <li>Stripe: Active sponsor, ask in recruiter screen</li>
+      <li>Confluent: Active sponsor (verified migratemate.co)</li>
+      <li>ServiceNow: Active, enterprise process established</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2 id="strengths">7. Naveen's key strengths to lead with</h2>
+  <div class="section">
+    <ol>
+      <li><strong>Payments at hypescale:</strong> Myntra/Flipkart — 500M carts, 100K+ payments/day. MakeMyTrip — designed full revamp from scratch: 50% latency reduction, maintenance cost -60%, revenue +millions. Rare seniority.</li>
+      <li><strong>Platform framework ownership:</strong> CreditKarma — owns and maintains the Finagle-based web framework used by ALL product teams. Manages EOL technology while maintaining 100% uptime. Near-identical to what Anthropic Platform team does.</li>
+      <li><strong>Full modern backend stack:</strong> Java + Scala + Kotlin + Kafka + Cassandra + Redis + Kubernetes + Docker + AWS/GCP/Azure. 2+ years production experience with each.</li>
+      <li><strong>Multi-datacenter architecture:</strong> MakeMyTrip payment system handles traffic from multiple active datacenters simultaneously. Sophisticated distributed systems credential.</li>
+      <li><strong>MS CS (ASU 2021) + 17 years hands-on:</strong> Rare combination of recent graduate degree AND very deep industry experience. Satisfies grad degree preference at AI labs AND "can ship" bar.</li>
+      <li><strong>Kafka at 5 companies:</strong> MakeMyTrip, Wenova, Pearson, Nordstrom, CreditKarma. Almost unmatched for a Confluent application.</li>
+      <li><strong>PCI-compliant fintech:</strong> Wavecrest — prepaid cards, ewallet, 100K new cards/day. Deep payments domain + security/compliance context relevant for Stripe and Anthropic Auth teams.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 8 -->
+  <h2 id="gaps">8. Gaps and things to fix before interviewing</h2>
+  <div class="section">
+    <ul>
+      <li><strong>LeetCode prep:</strong> All 7 target companies have coding rounds. 4–6 weeks of daily Medium/Hard LeetCode. Focus: graphs, dynamic programming, sliding window, trees. Use NeetCode.io roadmap.</li>
+      <li><strong>No public Scala code:</strong> CreditKarma is Scala-heavy but no public repos. Add at least one Scala project to GitHub — even small algorithm practice. Recruiters search GitHub.</li>
+      <li><strong>No cloud-native demos:</strong> Lists K8s + Docker extensively but no public infra-as-code or demo projects. A small GitHub Actions + Docker Compose project would help.</li>
+      <li><strong>LinkedIn refresh needed:</strong> Update to include Scala/TypeScript at CreditKarma, Finagle framework ownership, and open-source contributions. Recruiters from all 7 companies source from LinkedIn.</li>
+      <li><strong>System design prep — LLM-era patterns:</strong> Know: (1) rate limiter at scale, (2) distributed job scheduler, (3) service registry + health checks, (4) multi-tenant auth system, (5) deployment pipeline for ML models.</li>
+    </ul>
+
+    <h3>Resume keywords to add</h3>
+    <div style="margin:.5rem 0">
+      <span class="tag">Finagle</span><span class="tag">Distributed tracing</span><span class="tag">Service mesh</span>
+      <span class="tag">Observability</span><span class="tag">OpenTelemetry</span><span class="tag">gRPC</span>
+      <span class="tag">Multi-datacenter</span><span class="tag">Event sourcing</span><span class="tag">CQRS</span>
+      <span class="tag">TypeScript</span><span class="tag">Reactive programming</span><span class="tag">Circuit breaker</span>
+      <span class="tag">SLO/SLA management</span><span class="tag">On-call / incident response</span>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <h2 id="roles">9. Specific open roles found (June 2026)</h2>
+  <div class="section">
+    <h3>Anthropic (apply first)</h3>
+    <ul>
+      <li><strong>Senior SWE, Platform — Service Infra</strong> · SF · Job ID 5157844008 · ~$555K TC median · <a href="https://job-boards.greenhouse.io/anthropic/jobs/5157844008" target="_blank">Direct apply link</a></li>
+      <li><strong>Staff+ SWE, Platform — Auth & Identity</strong> · SF · Job ID 5157847008 · ~$700K–$800K+ TC · <a href="https://job-boards.greenhouse.io/anthropic/jobs/5157847008" target="_blank">Direct apply link</a></li>
+      <li><strong>SWE, Research Data Platform</strong> · SF or NYC · Job ID 5191226008 · ~$555K TC · <a href="https://job-boards.greenhouse.io/anthropic/jobs/5191226008" target="_blank">Direct apply link</a></li>
+    </ul>
+    <h3>NVIDIA</h3>
+    <ul>
+      <li><strong>Sr. SWE, Cloud Platform (NGC)</strong> · Santa Clara · IC4–IC5 · ~$315K–$450K TC · <a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite?q=cloud+platform+software+engineer" target="_blank">Search NVIDIA careers</a></li>
+      <li><strong>Sr. SWE, Network Telemetry / Backend</strong> · Santa Clara · IC4 · Scala+Kafka+Cassandra · <a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite" target="_blank">NVIDIA careers portal</a></li>
+    </ul>
+    <h3>Stripe</h3>
+    <ul>
+      <li><strong>Sr. Backend Engineer, Payments (Money Movement)</strong> · SF · L4 · ~$427K TC · <a href="https://stripe.com/jobs/search?query=backend+engineer+payments" target="_blank">Stripe careers</a></li>
+      <li><strong>Sr. Backend Engineer, Payments & Risk</strong> · SF · <a href="https://stripe.com/jobs" target="_blank">stripe.com/jobs</a></li>
+      <li>494 open roles total as of June 2026</li>
+    </ul>
+    <h3>Databricks</h3>
+    <ul>
+      <li><strong>Sr. SWE, Platform (Runtime/Infra)</strong> · SF · L5 · ~$435K TC · <a href="https://www.databricks.com/company/careers/open-positions" target="_blank">Databricks careers</a></li>
+    </ul>
+    <h3>Confluent</h3>
+    <ul>
+      <li><strong>Sr. SWE, Control Plane / Cloud Infra</strong> · Mountain View · L5 · ~$517K TC · <a href="https://www.confluent.io/careers/" target="_blank">Confluent careers</a></li>
+    </ul>
+    <h3>Google</h3>
+    <ul>
+      <li><strong>SWE L5/L6, Cloud Platform / AI Infrastructure</strong> · Mountain View · ~$425K TC (L5) · <a href="https://careers.google.com/jobs/results/?category=SOFTWARE_ENGINEERING" target="_blank">Google careers</a></li>
+      <li><strong>SWE L5, Google Pay / Payments Platform</strong> · Mountain View · <a href="https://careers.google.com" target="_blank">careers.google.com</a></li>
+    </ul>
+    <h3>ServiceNow</h3>
+    <ul>
+      <li><strong>Sr. SWE, Java Backend (Developer Sandbox)</strong> · Santa Clara · ~$400K–$550K TC · <a href="https://careers.servicenow.com/en/jobs/" target="_blank">ServiceNow careers</a></li>
+    </ul>
+    <p style="font-size:.78rem;color:#888;margin-top:.75rem">Note: Roles were verified as open in June 2026 but should be re-checked — job listings change frequently. Use the direct apply links or careers portals to confirm current status.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <h2 id="cowork">10. Cowork handoff prompt</h2>
+  <div class="section">
+    <p>Paste this into Cowork to get it fully oriented on this project:</p>
+    <div class="cowork-prompt">I have a job search project at ~/next/. Please read all the HTML files in that folder to get full context — especially context.html which has everything from my research session.
+
+Quick summary of who I am:
+- Naveen Reddy Alka, Senior Software Engineer II at CreditKarma (Portals Framework team)
+- 17 years experience in Java/Scala backend, fintech/payments, platform/infra engineering
+- Currently in San Ramon, CA. Looking for Bay Area roles only.
+- Target: $250K+ base, $500K–$800K total comp
+- Need H1B visa sponsorship (currently employed in US)
+- Want: AI-winning companies, no layoffs, good culture
+- Top picks in order: Anthropic, NVIDIA, ServiceNow, Confluent, Databricks, Stripe, Google
+
+My GitHub: github.com/naveenreddyalka
+My LinkedIn: linkedin.com/in/naveen-reddy-alka-01861817/
+
+The ~/next/ folder contains:
+- index.html — dashboard with all company cards
+- anthropic.html, nvidia.html — detailed pages with roles, comp, interview prep
+- stripe.html, databricks.html, google.html, confluent.html, servicenow.html — stub pages to expand
+- resume_analysis.html — GitHub audit + strengths + gaps
+- comp_guide.html — TC data table + negotiation tips
+- h1b_guide.html — 2026 lottery rules + company sponsorship data
+- interview_prep.html — 6-week plan + system design topics + behavioral stories
+- context.html — this full context document
+
+What I'd like help with today: [describe your task]</div>
+    <p style="font-size:.85rem;color:#666;margin-top:.75rem">Replace the last line with whatever you want Cowork to do — find new roles, update a company page, tailor your resume, search for salary data, etc.</p>
+  </div>
+
+</main>
+</body>
+</html>

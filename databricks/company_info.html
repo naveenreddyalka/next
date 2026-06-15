@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Databricks — Naveen's Job Tracker</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;line-height:1.6}
+  .topbar{background:#1a1a18;padding:1rem 2rem;display:flex;align-items:center;gap:12px}
+  .topbar a{color:#aaa;font-size:.85rem;text-decoration:none}.topbar a:hover{color:#fff}
+  .topbar span{color:#555;font-size:.85rem}
+  .hero{background:#FF3621;color:#fff;padding:2rem 2.5rem}
+  .hero h1{font-size:1.8rem;font-weight:500;margin-bottom:.25rem}
+  .hero p{font-size:.9rem;opacity:.8}
+  .hero-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .hero-meta span{font-size:.82rem;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px}
+  main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+  h2{font-size:1.1rem;font-weight:500;margin:2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #e5e4e0}
+  .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+  .comp-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:.85rem;text-align:center}
+  .comp-card .num{font-size:1.25rem;font-weight:500;color:#FF3621}
+  .comp-card .lbl{font-size:.72rem;color:#888;margin-top:2px}
+  .role-card{background:#fff;border:1px solid #e5e4e0;border-radius:10px;padding:1.25rem;margin-bottom:12px}
+  .role-title{font-size:1rem;font-weight:500;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .fit-badge{font-size:.72rem;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+  .fit-high{background:#EAF3DE;color:#27500A}
+  .fit-med{background:#FAEEDA;color:#633806}
+  .role-meta{font-size:.82rem;color:#666;margin:.35rem 0}
+  .role-why{font-size:.85rem;color:#444;margin-top:.5rem;line-height:1.5}
+  .tag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:12px;margin:2px 2px 0 0;background:#FFE8E5;color:#8C1A0E}
+  .apply-btn{display:inline-block;margin-top:.75rem;font-size:.82rem;padding:6px 16px;border-radius:8px;border:1px solid #FF3621;color:#FF3621;text-decoration:none;background:#fff}
+  .apply-btn:hover{background:#FFE8E5}
+  .prep-list{list-style:none;padding:0}
+  .prep-list li{padding:.5rem 0;border-bottom:1px solid #f0efe9;font-size:.9rem;display:flex;gap:.5rem}
+  .prep-list li::before{content:"→";color:#FF3621;flex-shrink:0}
+  .status-select{padding:6px 12px;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;background:#fff}
+  .notes-area{width:100%;padding:.75rem;border:1px solid #e5e4e0;border-radius:8px;font-size:.85rem;resize:vertical;font-family:inherit;margin-top:.5rem}
+  .info-box{background:#FFE8E5;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:.85rem;color:#8C1A0E}
+  .highlight-box{background:#fff8ed;border-left:3px solid #EF9F27;padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:.85rem;color:#633806;margin-bottom:1rem}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1rem}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  .pros-box{background:#EAF3DE;border-radius:10px;padding:1rem 1.25rem}
+  .cons-box{background:#FCE8E8;border-radius:10px;padding:1rem 1.25rem}
+  .pros-box h3,.cons-box h3{font-size:.9rem;margin:0 0 .5rem}
+  .pros-box h3{color:#27500A}.cons-box h3{color:#7a0009}
+  .pros-box li,.cons-box li{font-size:.85rem;line-height:1.55;margin-bottom:4px}
+  .app-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1rem;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e5e4e0}
+  .app-table th{text-align:left;padding:.65rem 1rem;background:#f5f4f0;font-weight:500;font-size:.78rem;color:#555}
+  .app-table td{padding:.65rem 1rem;border-bottom:1px solid #f0efe9;vertical-align:top}
+  .status-badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600}
+  .status-submitted{background:#EAF3DE;color:#27500A}
+  .status-progress{background:#FAEEDA;color:#633806}
+  .status-pending{background:#f0efe9;color:#555}
+  .status-none{background:#f5f4f0;color:#888}
+  .apps-summary{font-size:.82rem;color:#666;margin-bottom:.5rem}
+
+</style>
+<style>.topnav{background:#1a3a5c;padding:10px 24px;font-size:13px;} .topnav a{color:#aac4e0;text-decoration:none;margin-right:16px;} .topnav a:hover{color:white;}</style></head>
+<body><nav class="topnav"><a href="../index.html">← Home</a><a href="index.html">← Job Page</a></nav>
+<div class="topbar">
+  <a href="index.html">← Home</a>
+  <span>/</span>
+  <span style="color:#fff">Databricks</span>
+</div>
+<div class="hero">
+  <h1>Databricks</h1>
+  <p>A-Tier · Data + AI Platform Engineering · San Francisco, CA · ~50 min from San Ramon</p>
+  <div class="hero-meta">
+    <span>⚡ Winning the data+AI race</span>
+    <span>🛂 H1B confirmed on careers page</span>
+    <span>✅ No major layoffs</span>
+    <span>L5 target level</span>
+  </div>
+</div>
+<main>
+
+  <h2>Compensation — Senior Software Engineer L5 (Bay Area)</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="num">$220K</div><div class="lbl">Base (L5)</div></div>
+    <div class="comp-card"><div class="num">$215K</div><div class="lbl">Stock / yr (avg)</div></div>
+    <div class="comp-card"><div class="num">$435K</div><div class="lbl">Median TC (L5)</div></div>
+    <div class="comp-card"><div class="num">$1.68M</div><div class="lbl">L7 top reported</div></div>
+  </div>
+  <p style="font-size:.82rem;color:#888">Source: Levels.fyi + Blind, May 2026. H1B sponsorship confirmed — ask case-by-case at interview stage. Pre-IPO equity upside is significant.</p>
+
+  <div class="highlight-box">
+    ⚡ Databricks is pre-IPO — equity could appreciate significantly at IPO. L5 TC at $435K is below your $500K target but the equity upside and promotion to L6 ($700K+) within 18 months makes this A-tier. Also: Databricks is written largely in Scala — your CreditKarma Scala experience is directly relevant.
+  </div>
+
+  <h2>Why you're a strong match</h2>
+  <div class="info-box">
+    Databricks runs on Scala + Spark + Kubernetes + distributed data systems — your exact stack. You have Scala at CreditKarma, Kafka at 5 companies, Cassandra, Kubernetes, Docker, AWS/GCP. The Distributed Data Systems team builds next-gen storage and processing systems — directly analogous to your MakeMyTrip multi-datacenter payment architecture (event-driven, high-throughput, fault-tolerant). Your MS CS (ASU 2021) also satisfies their grad degree preference for senior roles.
+  </div>
+
+  
+  <h2 id="company-snapshot">Company snapshot and benefits</h2>
+  <ul class="prep-list">
+    <li><strong>Company type:</strong> Private (pre-IPO). Last private rounds ~$43B+ valuation. IPO widely expected; major equity upside.</li>
+    <li><strong>Salary range (Bay Area):</strong> L5 Senior/Staff Bay Area: $380K-$500K TC; L6 Staff $650K-$850K+ (Levels.fyi 2026).</li>
+    <li><strong>Growth / equity outlook:</strong> Pre-IPO equity is the main upside bet. Strong data+AI market position.</li>
+  </ul>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Benefits and perks</h3>
+  <ul class="prep-list"><li>Pre-IPO equity (likely RSUs at IPO)</li><li>401(k) match</li><li>Catered lunches (SF / Mountain View offices)</li><li>Premium medical/dental/vision</li><li>Parental leave + wellness stipend</li><li>Learning budget and conference travel</li><li>Hybrid SF / MV offices</li></ul>
+
+    <h2 id="how-to-crack">How to crack Databricks</h2>
+    <ul class="prep-list">
+      <li><strong>Interview style:</strong> Structured loop with Spark/distributed-systems domain round. Scala/Java friendly.</li>
+      <li><strong>Rounds:</strong> 5-6: recruiter -&gt; 2x coding -&gt; system design -&gt; domain/architecture -&gt; hiring manager.</li>
+      <li><strong>Coding:</strong> Medium-Hard LeetCode. Arrays, graphs, DS problems. Staff may get more practical coding.</li>
+    </ul>
+    <p class="prep-label"><strong>4-week prep plan:</strong></p>
+    <ul class="prep-list"><li>3-4 weeks LC: Medium/Hard mix + review Scala syntax if rusty</li><li>Study Spark: execution model, shuffle, partitions, fault tolerance, Catalyst</li><li>Design: distributed job scheduler, real-time pipeline, multi-tenant cluster manager</li><li>Prepare CK Scala + Kafka + Cassandra stories mapped to Runtime/Data teams</li><li>Review Delta Lake basics and lakehouse architecture</li><li>Practice explaining multi-DC payment architecture from MakeMyTrip</li></ul>
+  <h2 id="latest-questions">Latest interview questions</h2>
+  <p class="muted" style="margin-bottom:12px;">Newest reports first. Updated weekly via scheduled refresh.</p><div class="q-item"><div class="q-head"><span class="q-type type-behavioral">Behavioral</span><span class="q-meta">YouTube / candidate reports | 2025-11</span></div><div class="q-text">STAR stories: conflict resolution, ownership, cross-functional feedback <a href="https://www.youtube.com/watch?v=Fdd0PjsieWk" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">Design cheapest-book search service across distributors <a href="https://interviewing.io/databricks-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">jobsbyculture | 2026-01</span></div><div class="q-text">Design production RAG architecture (GenAI round increasingly common) <a href="https://jobsbyculture.com/blog/databricks-interview-prep-2026" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-design">System Design</span><span class="q-meta">jobsbyculture | 2026-01</span></div><div class="q-text">Design real-time streaming pipeline / data lakehouse ingestion at scale <a href="https://jobsbyculture.com/blog/databricks-interview-prep-2026" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">JobMentis | 2026-01</span></div><div class="q-text">Largest rectangle in histogram applied to 2D workspace grid <a href="https://www.jobmentis.com/en/interviews/databricks/swe" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">IP address to CIDR range matching <a href="https://interviewing.io/databricks-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">interviewing.io | 2025-12</span></div><div class="q-text">Variable-sized tic-tac-toe game implementation <a href="https://interviewing.io/databricks-interview-questions" target="_blank" class="link-sm">source</a></div></div><div class="q-item"><div class="q-head"><span class="q-type type-coding">Coding</span><span class="q-meta">jobsbyculture / interviewing.io | 2026-01</span></div><div class="q-text">Concurrency round: implement thread-safe logger or concurrent writers (signature round) <a href="https://jobsbyculture.com/blog/databricks-interview-prep-2026" target="_blank" class="link-sm">source</a></div></div>
+
+  <h2>Pros and cons - decision guide</h2>
+  <div class="two-col">
+    <div class="pros-box"><h3>Pros</h3><ul><li>Scala/Kafka/Cassandra stack match</li><li>Pre-IPO equity upside</li><li>Multiple Staff roles</li><li>Strong engineering culture</li><li>H1B confirmed</li></ul></div>
+    <div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div><div class="cons-box"><h3>Cons</h3><ul><li>L5 median TC below $500K day-one</li><li>Greenhouse security code friction</li><li>SF commute ~50 min</li></ul></div>
+  </div>
+  <h2>Benefits and perks</h2>
+  <ul class="prep-list"><li>Medical, dental, and vision insurance</li><li>401(k) with company match</li><li>Equity / RSU or stock options (4-year vest typical)</li><li>Parental leave and wellness programs</li></ul>
+
+  <h2>Interview format at Databricks</h2>
+  <ul class="prep-list">
+    <li>5–6 rounds: recruiter → coding (2x) → system design → domain/architecture → hiring manager</li>
+    <li>Coding: Medium–Hard LeetCode. Heavy on arrays, graphs, distributed systems concepts. Scala or Java preferred.</li>
+    <li>System design: Design a distributed job scheduler, a real-time data pipeline, or a multi-tenant cluster manager. Prep these.</li>
+    <li>Domain round: Expect deep Spark/distributed systems questions. Know: Spark execution model, shuffle operations, partition strategies, fault tolerance. Review these before interviewing.</li>
+    <li>Databricks values: engineering excellence, ownership, impact. Show you can own a system end-to-end, not just implement tickets.</li>
+    <li>H1B: Confirmed sponsor. Bring it up at recruiter screen — they'll discuss case-by-case.</li>
+  </ul>
+
+  <h2>My applications</h2>
+  <p class="apps-summary">4 submitted &middot; 7 total tracked</p><div style="overflow-x:auto"><table class="app-table"><thead><tr><th>Role</th><th>Job ID</th><th>Status</th><th>Date</th><th>Link</th></tr></thead><tbody><tr><td>Staff SWE - Distributed Data Systems</td><td><code>6937001002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=6937001002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Distributed Data Systems</td><td><code>5646855002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646855002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Sr. Staff SWE - Data Platform</td><td><code>7823561002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7823561002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Backend</td><td><code>5408888002</code></td><td><span class="status-badge status-submitted">Submitted</span></td><td>2026-06-04</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5408888002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - Database Engine Internals</td><td><code>5646866002</code></td><td><span class="status-badge status-progress">In progress</span></td><td>2026-06-05</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=5646866002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Staff SWE - IAM</td><td><code>7994801002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7994801002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr><tr><td>Senior Staff SWE - Security Infrastructure</td><td><code>7274908002</code></td><td><span class="status-badge status-pending">Pending</span></td><td>-</td><td><a href="https://job-boards.greenhouse.io/embed/job_app?for=databricks&token=7274908002" target="_blank" class="apply-btn" style="margin-top:0">View</a></td></tr></tbody></table></div>
+  <p style="font-size:.82rem;color:#888;margin-top:.5rem">Also track status on the <a href="index.html">job apply page</a>.</p>
+  <a href="https://www.databricks.com/company/careers/open-positions" target="_blank" class="apply-btn" style="margin-top:.5rem">Open Databricks careers portal ↗</a>
+</main>
+</body>
+</html>

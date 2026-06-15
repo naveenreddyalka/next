@@ -1,0 +1,680 @@
+{
+  "anthropic": [
+    {
+      "type": "Behavioral",
+      "question": "Describe a technical misjudgment that delayed a project - what did you learn?",
+      "source": "Medium",
+      "reported": "2025-09",
+      "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Behavioral",
+      "question": "Tell me about a safety-first technical decision you made on a project",
+      "source": "Medium",
+      "reported": "2025-09",
+      "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design inference batching on a single GPU maximizing utilization under synchronous user waits",
+      "source": "Exponent",
+      "reported": "2026-03",
+      "url": "https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design distributed search for 1B documents at 1M QPS with sharding and LLM inference scaling",
+      "source": "Medium",
+      "reported": "2025-09",
+      "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design a batch inferencing API over GPU clusters (scheduling, cold start, model caching)",
+      "source": "Exponent",
+      "reported": "2025-08",
+      "url": "https://www.tryexponent.com/experiences/anthropic-staff-software-engineer-interview-9bfb57",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement LRU cache with serialization and evolving constraints",
+      "source": "Exponent",
+      "reported": "2025-10",
+      "url": "https://www.tryexponent.com/guides/anthropic-software-engineer-interview/questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Build a multi-threaded web crawler with deduplication and rate limiting",
+      "source": "interviewing.io",
+      "reported": "2025-12",
+      "url": "https://interviewing.io/anthropic-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement an in-memory database with SET/GET/DELETE, then add TTL, filtered scans, and file compression levels",
+      "source": "Medium / Exponent",
+      "reported": "2025-09",
+      "url": "https://medium.com/@anqi.silvia/my-2025-anthropic-software-engineer-interview-experience-9fc15cd81a99",
+      "added": "2026-06-09"
+    }
+  ],
+  "confluent": [
+    {
+      "type": "System Design",
+      "question": "Design URL shortener with streaming analytics hook",
+      "source": "LeetCode Discuss",
+      "reported": "2024-12",
+      "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "LFU cache with thread-safety follow-up",
+      "source": "LeetCode Discuss",
+      "reported": "2024-12",
+      "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement LRU cache with TTL expiration",
+      "source": "Glassdoor / jointaro",
+      "reported": "2025-11",
+      "url": "https://www.jointaro.com/interviews/companies/confluent/work-experiences/software-engineer-bengaluru-november-7-2025-4-09fb2dd5/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Validate Sudoku board and extend to Sudoku solver",
+      "source": "Glassdoor / LeetCode Discuss",
+      "reported": "2024-12",
+      "url": "https://www.glassdoor.com/Interview/Confluent-Software-Engineer-Interview-Questions-EI_IE1048428.0,9_KO10,27.htm",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Word and phrase search across a list of documents",
+      "source": "LeetCode Discuss / CodingKaro",
+      "reported": "2024-12",
+      "url": "https://leetcode.com/discuss/post/6155819/confluent-onsite-round-by-anonymous_user-sho3/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Behavioral",
+      "question": "Deep Kafka domain: compaction, ISR, partition rebalancing under failure",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design event streaming platform - consumer groups, exactly-once semantics",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design multi-tenant Kafka cluster with isolation and rebalancing",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Medium Java - correctness over speed, clean communication",
+      "source": "Confluent prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    }
+  ],
+  "databricks": [
+    {
+      "type": "Behavioral",
+      "question": "STAR stories: conflict resolution, ownership, cross-functional feedback",
+      "source": "YouTube / candidate reports",
+      "reported": "2025-11",
+      "url": "https://www.youtube.com/watch?v=Fdd0PjsieWk",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design cheapest-book search service across distributors",
+      "source": "interviewing.io",
+      "reported": "2025-12",
+      "url": "https://interviewing.io/databricks-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design production RAG architecture (GenAI round increasingly common)",
+      "source": "jobsbyculture",
+      "reported": "2026-01",
+      "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design real-time streaming pipeline / data lakehouse ingestion at scale",
+      "source": "jobsbyculture",
+      "reported": "2026-01",
+      "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Largest rectangle in histogram applied to 2D workspace grid",
+      "source": "JobMentis",
+      "reported": "2026-01",
+      "url": "https://www.jobmentis.com/en/interviews/databricks/swe",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "IP address to CIDR range matching",
+      "source": "interviewing.io",
+      "reported": "2025-12",
+      "url": "https://interviewing.io/databricks-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Variable-sized tic-tac-toe game implementation",
+      "source": "interviewing.io",
+      "reported": "2025-12",
+      "url": "https://interviewing.io/databricks-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Concurrency round: implement thread-safe logger or concurrent writers (signature round)",
+      "source": "jobsbyculture / interviewing.io",
+      "reported": "2026-01",
+      "url": "https://jobsbyculture.com/blog/databricks-interview-prep-2026",
+      "added": "2026-06-09"
+    }
+  ],
+  "google": [
+    {
+      "type": "Behavioral",
+      "question": "Googleyness: mentor junior engineers, lead without authority, controversial decision",
+      "source": "gitGood.dev",
+      "reported": "2025-11",
+      "url": "https://gitgood.dev/prep/google-l5-swe",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design Google-scale autocomplete with prefix frequency ranking",
+      "source": "Onsites.fyi",
+      "reported": "2025-10",
+      "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Graph: shortest paths, topological sort, strongly connected components",
+      "source": "Medium L5 reports",
+      "reported": "2025-09",
+      "url": "https://medium.com/@rohitverma_87831/my-interview-experience-at-google-afc1080df175",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Median of data stream (two heaps)",
+      "source": "Onsites.fyi / Medium",
+      "reported": "2025-10",
+      "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "LRU cache O(1) - common Google follow-up chain",
+      "source": "Onsites.fyi",
+      "reported": "2025-10",
+      "url": "https://www.onsites.fyi/blog/article/google-L5-software-engineer-interview-questions",
+      "added": "2026-06-09"
+    }
+  ],
+  "netflix": [
+    {
+      "type": "Behavioral",
+      "question": "Culture memo alignment - freedom and responsibility, high performance bar",
+      "source": "Blind",
+      "reported": "2025-08",
+      "url": "https://www.teamblind.com/post/netflix-l4-full-stack-engineer-interview-prep-0cdqwyl4",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Open Connect CDN - multi-region failover and traffic routing",
+      "source": "Prepfully",
+      "reported": "2025-10",
+      "url": "https://prepfully.com/interview-guides/netflix-software-engineer",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design log/video playback pipeline at Netflix scale (multi-region, fault tolerance)",
+      "source": "programhelp.net",
+      "reported": "2025-11",
+      "url": "https://programhelp.net/en/vo/netflix-software-engineer-interview-guide-top-questions-tips/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "OOD: design a class from one-liner spec - clarify requirements first",
+      "source": "Blind",
+      "reported": "2025-08",
+      "url": "https://www.teamblind.com/post/netflix-interview-prep-2025-oi6mk43k",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "LC 901 Online Stock Span variant - sliding window / monotonic stack",
+      "source": "programhelp.net",
+      "reported": "2025-11",
+      "url": "https://programhelp.net/en/vo/netflix-software-engineer-interview-guide-top-questions-tips/",
+      "added": "2026-06-09"
+    }
+  ],
+  "nvidia": [
+    {
+      "type": "Behavioral",
+      "question": "Explain CUDA memory coalescing and how it affects kernel performance",
+      "source": "huru.ai",
+      "reported": "2025-10",
+      "url": "https://huru.ai/nvidia-interview-questions-mastering-cuda-inference-systems/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design large-scale GPU inference scheduling and model serving pipeline",
+      "source": "IGotAnOffer",
+      "reported": "2025-05",
+      "url": "https://igotanoffer.com/en/advice/nvidia-software-engineer-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Graph/tree medium problems with memory or concurrency follow-ups",
+      "source": "Leetcode Wizard",
+      "reported": "2025-08",
+      "url": "https://leetcodewizard.io/blog/mastering-the-nvidia-software-engineer-interview-questions-process-and-expert-tips-for-preparation",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "LRU Cache - O(1) get/put",
+      "source": "LeetCode / jointaro",
+      "reported": "2025-06",
+      "url": "https://www.jointaro.com/interviews/companies/nvidia/",
+      "added": "2026-06-09"
+    }
+  ],
+  "openai": [
+    {
+      "type": "Behavioral",
+      "question": "Technical project deep dive - what did YOU own vs the team?",
+      "source": "Exponent",
+      "reported": "2025-08",
+      "url": "https://www.tryexponent.com/experiences/openai-senior-software-engineer-interview-60a1ae",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design model-serving platform with request batching, queuing, and GPU utilization",
+      "source": "interviewing.io",
+      "reported": "2025-12",
+      "url": "https://interviewing.io/openai-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design ChatGPT-scale chat service - press on 100x/1000x load growth",
+      "source": "Exponent",
+      "reported": "2025-10",
+      "url": "https://www.tryexponent.com/guides/openai-software-engineer-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement Unix cd command with symlink resolution and cycle detection",
+      "source": "IGotAnOffer",
+      "reported": "2025-11",
+      "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Build a multithreaded web crawler with URL deduplication and failure handling",
+      "source": "IGotAnOffer",
+      "reported": "2025-11",
+      "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement a time-based key-value store with get/set and expiry",
+      "source": "IGotAnOffer",
+      "reported": "2025-11",
+      "url": "https://igotanoffer.com/en/advice/openai-coding-interview",
+      "added": "2026-06-09"
+    }
+  ],
+  "servicenow": [
+    {
+      "type": "Behavioral",
+      "question": "Tell me about staying Hungry & Humble while shipping under pressure",
+      "source": "cvcraft.roynex",
+      "reported": "2026-04",
+      "url": "https://cvcraft.roynex.com/companies/servicenow",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Shard a relational schema for 5,000 enterprise tenants with data isolation",
+      "source": "cvcraft.roynex",
+      "reported": "2026-04",
+      "url": "https://cvcraft.roynex.com/companies/servicenow",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design permissions model for CMDB with 100M configuration items and role hierarchies",
+      "source": "Tech Interview Dot Org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/companies/servicenow/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design ServiceNow incident-management workflow engine for millions of workflows across 8K tenants",
+      "source": "Tech Interview Dot Org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/companies/servicenow/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Topological sort - when would you use it in a workflow product?",
+      "source": "cvcraft.roynex",
+      "reported": "2026-04",
+      "url": "https://cvcraft.roynex.com/companies/servicenow",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement LRU cache and explain trade-offs",
+      "source": "cvcraft.roynex",
+      "reported": "2026-04",
+      "url": "https://cvcraft.roynex.com/companies/servicenow",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Trapping Rain Water - two-pointer / sliding window pattern",
+      "source": "TechPrep",
+      "reported": "2026-01",
+      "url": "https://www.techprep.app/blog/servicenow-interview-process",
+      "added": "2026-06-09"
+    }
+  ],
+  "snowflake": [
+    {
+      "type": "Behavioral",
+      "question": "Explain engineering trade-offs linking technical design to business metrics",
+      "source": "DEV Community",
+      "reported": "2025-11",
+      "url": "https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design real-time data ingestion pipeline at Snowflake scale",
+      "source": "Refer.me",
+      "reported": "2025-09",
+      "url": "https://www.refer.me/interview/technical-interview-for-snowflake-software-engineer-technical-interview-at-snowflake",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design multi-tenant data warehouse isolating business units without workload interference",
+      "source": "System Design Handbook",
+      "reported": "2025-10",
+      "url": "https://www.systemdesignhandbook.com/guides/snowflake-system-design-interview/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design quota management service with concurrent users, reclamation, and lock contention",
+      "source": "DEV Community",
+      "reported": "2025-11",
+      "url": "https://dev.to/net_programhelp_e160eef28/snowflake-backend-sde-phone-interview-experience-code-isnt-tricky-but-engineering-thinking-is-351g",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Check whether any character has been duplicated in a string",
+      "source": "Exponent",
+      "reported": "2026-01",
+      "url": "https://www.tryexponent.com/guides/snowflake-software-engineer-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Tree medium with pruning + greedy max-heap follow-up",
+      "source": "Glassdoor",
+      "reported": "2025-06",
+      "url": "https://www.glassdoor.com/Interview/Snowflake-Software-Engineer-Interview-Questions-EI_IE928471.0,9_KO10,27.htm",
+      "added": "2026-06-09"
+    }
+  ],
+  "spacex": [
+    {
+      "type": "System Design",
+      "question": "Design fault-tolerant rocket guidance handling sensor failures (TMR, watchdog timers)",
+      "source": "engineerknow / Tech Interview Dot Org",
+      "reported": "2025-12",
+      "url": "https://www.engineerknow.com/2026/04/30-popular-spacex-engineering-technical.html",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design telemetry data pipeline for a rocket launch (compression, failure handling)",
+      "source": "System Design Handbook",
+      "reported": "2025-10",
+      "url": "https://www.systemdesignhandbook.com/guides/spacex-system-design-interview/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Real-time scheduler for concurrent spacecraft telemetry streams",
+      "source": "cleverprep",
+      "reported": "2025-11",
+      "url": "https://www.cleverprep.com/companies/spacex/software-engineer",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Hybrid algorithm + design: multi-location inventory management with transfers at scale",
+      "source": "interviewing.io",
+      "reported": "2025-10",
+      "url": "https://interviewing.io/spacex-interview-questions",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Behavioral",
+      "question": "Mission commitment and long hours expectations - honest HM conversation",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Multi-datacenter failover and high-availability ground software",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Medium/hard DS&A with emphasis on correctness under constraints",
+      "source": "Handoff prep",
+      "reported": "2025-10",
+      "url": "",
+      "added": "2026-06-09"
+    }
+  ],
+  "stripe": [
+    {
+      "type": "Behavioral",
+      "question": "Ownership example - incident you drove and cross-team disagreement",
+      "source": "Exponent",
+      "reported": "2025-12",
+      "url": "https://www.tryexponent.com/guides/stripe-software-engineer-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design distributed rate limiter for Stripe API (multi-region)",
+      "source": "techinterview.org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design Stripe payment processing with idempotency keys and exactly-once semantics",
+      "source": "techinterview.org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Integration round: build feature using Stripe API docs + GitHub repo",
+      "source": "Exponent",
+      "reported": "2025-12",
+      "url": "https://www.tryexponent.com/guides/stripe-software-engineer-interview",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Bug bash: find race conditions and off-by-one bugs in ~200 lines of payment code",
+      "source": "techinterview.org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/post/3233460268/stripe-interview-guide-2026-process-bug-bash-round-and-payment-systems/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Design a rate limiter - N requests per user per minute (sliding window)",
+      "source": "Leetcode Wizard",
+      "reported": "2025-10",
+      "url": "https://leetcodewizard.io/blog/mastering-the-stripe-software-engineer-interview-questions-process-and-expert-tips-for-preparation",
+      "added": "2026-06-09"
+    }
+  ],
+  "uber": [
+    {
+      "type": "Behavioral",
+      "question": "Deep dive on production failure you owned and cross-team disagreement",
+      "source": "devbrainiac",
+      "reported": "2025-10",
+      "url": "https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design real-time stock price notification system",
+      "source": "devbrainiac",
+      "reported": "2025-10",
+      "url": "https://devbrainiac.com/blogs/83/uber-sde-2-interview-experience/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design Splitwise - minimize transactions, handle concurrent expense entries",
+      "source": "interviewexperiences.in",
+      "reported": "2025-11",
+      "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design real-time driver dispatch - match riders to nearest driver in 1-2 seconds",
+      "source": "Tech Interview Dot Org",
+      "reported": "2026-01",
+      "url": "https://www.techinterview.org/post/3233460273/uber-interview-guide-2026-dispatch-systems-geospatial-algorithms-and-marketplace-engineering/",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Implement Linux filesystem commands: mkdir, cd, ls, pwd (N-ary tree)",
+      "source": "interviewexperiences.in",
+      "reported": "2025-11",
+      "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Minimax game - two players pick only corner values each turn",
+      "source": "interviewexperiences.in",
+      "reported": "2025-11",
+      "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Optimal Binary Search Tree variation (DP on trees)",
+      "source": "interviewexperiences.in",
+      "reported": "2025-11",
+      "url": "https://interviewexperiences.in/experience/uber/interview-experience-sde2-uber-nov-2025",
+      "added": "2026-06-09"
+    }
+  ],
+  "xai": [
+    {
+      "type": "Behavioral",
+      "question": "Why xAI / Grok - ownership and speed under ambiguity",
+      "source": "General prep",
+      "reported": "2025-12",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "System Design",
+      "question": "Design a low-latency inference API serving Grok at scale",
+      "source": "General prep",
+      "reported": "2025-12",
+      "url": "",
+      "added": "2026-06-09"
+    },
+    {
+      "type": "Coding",
+      "question": "Rate-limited API design with sliding window per user",
+      "source": "General / Blind pattern",
+      "reported": "2025-12",
+      "url": "",
+      "added": "2026-06-09"
+    }
+  ],
+  "_meta": {
+    "last_refresh": "2026-06-14",
+    "max_per_company": 30
+  }
+}
